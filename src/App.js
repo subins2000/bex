@@ -8,8 +8,8 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import Header from './Header.js';
-import './Home.js';
+import Header from './components/partial/Header.js';
+import Home from './components/Home.js';
 
 class App extends Component {
     render() {

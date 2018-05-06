@@ -15,10 +15,18 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <div className="App">
+                <div className="app">
                     <Header/>
-                    <p className="App-intro">
-                    </p>
+                    <div className="container">
+                        <div className="intro row align-items-center">
+                            <div className="col">
+                                <center>
+                                    <h1>BeX</h1>
+                                    <p>Easily exchange books !</p>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </Router>
         );

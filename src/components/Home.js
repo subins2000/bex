@@ -1,8 +1,25 @@
 import React, { Component } from 'react';
+import Header from './partial/Header.js';
+
+import './css/App.css';
 
 class Home extends Component {
     render() {
-        return ('');
+        return (
+            <div>
+                <Header/>
+                <div className="container">
+                    <div className="intro row align-items-center">
+                        <div className="col">
+                            <center>
+                                <h1>BeX</h1>
+                                <p>Easily exchange books !</p>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
     }
 }
 

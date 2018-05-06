@@ -6,27 +6,17 @@ import {
 } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
 
-import Header from './components/partial/Header.js';
 import Home from './components/Home.js';
+import Login from './components/Login.js';
 
 class App extends Component {
     render() {
         return (
             <Router>
                 <div className="app">
-                    <Header/>
-                    <div className="container">
-                        <div className="intro row align-items-center">
-                            <div className="col">
-                                <center>
-                                    <h1>BeX</h1>
-                                    <p>Easily exchange books !</p>
-                                </center>
-                            </div>
-                        </div>
-                    </div>
+                    <Route exact path="/" component={Home}/>
+                    <Route exact path="/login" component={Login}/>
                 </div>
             </Router>
         );

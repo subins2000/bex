@@ -8,7 +8,7 @@ class Home extends Component {
         return (
             <div>
                 <Header/>
-                <div className="container">
+                <div className="container" id="content">
                     <div className="intro row align-items-center">
                         <div className="col">
                             <center>

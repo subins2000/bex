@@ -6,7 +6,7 @@ class Login extends Component {
         return (
             <div>
                 <Header/>
-                <div className="container">
+                <div className="container" id="content">
                     <p>
                         <h1>Login</h1>
                     </p>

@@ -6,7 +6,7 @@ class Register extends Component {
         return (
             <div>
                 <Header/>
-                <div className="container">
+                <div className="container" id="content">
                     <p>
                         <h1>Register</h1>
                     </p>
@@ -16,7 +16,7 @@ class Register extends Component {
                             <input type="email" className="form-control" id="inputEmail" placeholder="Enter email" />
                         </div>
                         <div className="form-group">
-                        <label for="inputPassword">Password</label>
+                            <label for="inputPassword">Password</label>
                             <input type="password" className="form-control" id="inputPassword" placeholder="Enter password" />
                         </div>
                     </form>

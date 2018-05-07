@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './partial/Header.js';
 
-import './css/App.css';
+import './css/Home.css';
 
 class Home extends Component {
     render() {

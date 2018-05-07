@@ -7,6 +7,8 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import './components/css/App.css';
+
 import Home from './components/Home.js';
 import Login from './components/Login.js';
 import Register from './components/Register.js';

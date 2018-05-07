@@ -9,14 +9,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from './components/Home.js';
 import Login from './components/Login.js';
+import Register from './components/Register.js';
 
 class App extends Component {
     render() {
         return (
             <Router>
                 <div className="app">
-                    <Route exact path="/" component={Home}/>
-                    <Route exact path="/login" component={Login}/>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/register" component={Register} />
                 </div>
             </Router>
         );

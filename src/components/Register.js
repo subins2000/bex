@@ -16,9 +16,14 @@ class Register extends Component {
                             <input type="email" className="form-control" id="inputEmail" placeholder="Enter email" />
                         </div>
                         <div className="form-group">
+                            <label for="inputUsername">Username</label>
+                            <input type="text" className="form-control" id="inputUsername" placeholder="Enter username" />
+                        </div>
+                        <div className="form-group">
                             <label for="inputPassword">Password</label>
                             <input type="password" className="form-control" id="inputPassword" placeholder="Enter password" />
                         </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
                     </form>
                 </div>
             </div>

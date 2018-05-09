@@ -11,14 +11,13 @@ class Login extends Component {
                         <h1>Login</h1>
                     </p>
                     <form>
-                        <div className="row">
-                            <div className="col">
-                                <input type="email" className="form-control" placeholder="Enter email" />
-                            </div>
-                            <div className="col">
-                                <input type="password" className="form-control" placeholder="Enter password" />
-                            </div>
+                        <div className="form-group">
+                            <input type="email" className="form-control" placeholder="Enter email" />
                         </div>
+                        <div className="form-group">
+                            <input type="password" className="form-control" placeholder="Enter password" />
+                        </div>
+                        <button class="btn btn-primary">Login</button>
                     </form>
                 </div>
             </div>

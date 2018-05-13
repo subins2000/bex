@@ -2,6 +2,22 @@ import React, { Component } from 'react';
 import Header from './partial/Header.js';
 
 class Register extends Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            username: ''
+        };
+
+        this.updateUsername = this.updateUsername.bind(this);
+    }
+
+    updateUsername(e) {
+        this.setState({
+            username: e.target.value
+        });
+    }
+
     render() {
         return (
             <div>
@@ -17,7 +33,10 @@ class Register extends Component {
                         </div>
                         <div className="form-group">
                             <label for="inputUsername">Username</label>
-                            <input type="text" className="form-control" id="inputUsername" placeholder="Enter username" />
+                            <input type="text" className="form-control" id="inputUsername" placeholder="Enter username" onKeyUp={this.updateUsername} />
+                            <blockquote className="blockquote">
+                                u/{this.state.username}
+                            </blockquote>
                         </div>
                         <div className="form-group">
                             <label for="inputPassword">Password</label>

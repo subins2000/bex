@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {
     BrowserRouter as Router,
-    Route
+    Route,
+    Switch,
 } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,15 +12,19 @@ import './components/css/App.css';
 import Home from './components/Home.js';
 import Login from './components/Login.js';
 import Register from './components/Register.js';
+import NotFound from './components/NotFound.js';
 
 class App extends Component {
     render() {
         return (
             <Router>
                 <div className="app">
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/register" component={Register} />
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/register" component={Register} />
+                        <Route component={NotFound} />
+                    </Switch>
                 </div>
             </Router>
         );

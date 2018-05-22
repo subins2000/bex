@@ -4,7 +4,11 @@ import {
 } from 'react-router-dom'
 import Header from './partial/Header.js';
 
-class Home extends Component {
+class NotFound extends Component {
+    componentDidMount(){
+        document.title = '404 Not Found'
+    }
+
     render() {
         return (
             <div>
@@ -27,4 +31,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default NotFound;

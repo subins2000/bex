@@ -6,16 +6,20 @@ class Register extends Component {
         super(props);
 
         this.state = {
-            username: ''
+            inputEmail: '',
+            inputUsername: '',
+            inputPassword: '',
         };
 
-        this.updateUsername = this.updateUsername.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    updateUsername(e) {
-        this.setState({
-            username: e.target.value
-        });
+    handleInputChange(e) {
+        this.setState({[e.target.id]: e.target.value});
+    }
+
+    registerUser(e) {
+        e.preventDefault();
     }
 
     render() {
@@ -26,23 +30,23 @@ class Register extends Component {
                     <p>
                         <h1>Register</h1>
                     </p>
-                    <form>
+                    <form onSubmit={this.registerUser}>
                         <div className="form-group">
                             <label for="inputEmail">Email address</label>
-                            <input type="email" className="form-control" id="inputEmail" placeholder="Enter email" />
+                            <input type="email" className="form-control" id="inputEmail" placeholder="Enter email" value={this.state.inputEmail} onChange={this.handleInputChange} />
                         </div>
                         <div className="form-group">
                             <label for="inputUsername">Username</label>
-                            <input type="text" className="form-control" id="inputUsername" placeholder="Enter username" onKeyUp={this.updateUsername} />
+                            <input type="text" className="form-control" id="inputUsername" placeholder="Enter username" value={this.state.inputUsername} onChange={this.handleInputChange} />
                             <blockquote className="blockquote">
-                                u/{this.state.username}
+                                u/{this.state.inputUsername}
                             </blockquote>
                         </div>
                         <div className="form-group">
                             <label for="inputPassword">Password</label>
-                            <input type="password" className="form-control" id="inputPassword" placeholder="Enter password" />
+                            <input type="password" className="form-control" id="inputPassword" placeholder="Enter password" value={this.state.inputPassword} onChange={this.handleInputChange} />
                         </div>
-                        <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="submit" className="btn btn-primary">Register</button>
                     </form>
                 </div>
             </div>

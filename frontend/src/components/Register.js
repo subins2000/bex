@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 import Header from './partial/Header.js';
 
 class Register extends Component {
@@ -12,14 +14,25 @@ class Register extends Component {
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
 
     handleInputChange(e) {
         this.setState({[e.target.id]: e.target.value});
     }
 
-    registerUser(e) {
+    handleFormSubmit(e) {
         e.preventDefault();
+
+        axios.post('/api/users/register', {
+            email: this.state.inputEmail,
+            username: this.state.inputUsername,
+            password: this.state.inputPassword,
+        }).then(function(response){
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+        });
     }
 
     render() {
@@ -27,10 +40,8 @@ class Register extends Component {
             <div>
                 <Header/>
                 <div className="container" id="content">
-                    <p>
-                        <h1>Register</h1>
-                    </p>
-                    <form onSubmit={this.registerUser}>
+                    <h1>Register</h1>
+                    <form onSubmit={this.handleFormSubmit}>
                         <div className="form-group">
                             <label for="inputEmail">Email address</label>
                             <input type="email" className="form-control" id="inputEmail" placeholder="Enter email" value={this.state.inputEmail} onChange={this.handleInputChange} />

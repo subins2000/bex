@@ -4,6 +4,7 @@ import {
     Route,
     Switch,
 } from 'react-router-dom'
+import axios from 'axios';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -13,6 +14,13 @@ import Home from './components/Home.js';
 import Login from './components/Login.js';
 import Register from './components/Register.js';
 import NotFound from './components/NotFound.js';
+
+
+/**
+ * CSRF Prevention config
+ */
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
 class App extends Component {
     render() {

@@ -20,6 +20,9 @@
         </noscript>
         <div id="root"></div>
 
+        <script>
+            var CSRFTOKEN = '{{ csrf_token }}';
+        </script>
         {% render_bundle 'main' %}
 
     </body>

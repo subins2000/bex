@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import toastr from 'toastr';
 
 import Header from './partial/Header.js';
+
+import 'toastr/build/toastr.min.css';
 
 class Register extends Component {
     constructor(props){
@@ -11,6 +14,7 @@ class Register extends Component {
             inputEmail: '',
             inputUsername: '',
             inputPassword: '',
+            inputName: '',
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -24,12 +28,20 @@ class Register extends Component {
     handleFormSubmit(e) {
         e.preventDefault();
 
+        var $this = this;
+
         axios.post('/api/users/register', {
             email: this.state.inputEmail,
             username: this.state.inputUsername,
             password: this.state.inputPassword,
-        }).then(function(response){
-            console.log(response);
+            name: this.state.inputName,
+        }).then(function(response) {
+
+            if (response.status === 201) {
+                toastr.info('Account Created!');
+                $this.props.history.push('/login');
+            }
+
         }).catch(function (error) {
             console.log(error);
         });
@@ -56,6 +68,10 @@ class Register extends Component {
                         <div className="form-group">
                             <label for="inputPassword">Password</label>
                             <input type="password" className="form-control" id="inputPassword" placeholder="Enter password" value={this.state.inputPassword} onChange={this.handleInputChange} />
+                        </div>
+                        <div className="form-group">
+                            <label for="inputName">Name</label>
+                            <input type="text" className="form-control" id="inputName" placeholder="Enter name" value={this.state.inputName} onChange={this.handleInputChange} />
                         </div>
                         <button type="submit" className="btn btn-primary">Register</button>
                     </form>

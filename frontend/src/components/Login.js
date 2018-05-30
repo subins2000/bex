@@ -7,9 +7,7 @@ class Login extends Component {
             <div>
                 <Header/>
                 <div className="container" id="content">
-                    <p>
-                        <h1>Login</h1>
-                    </p>
+                    <h1>Login</h1>
                     <form>
                         <div className="form-group">
                             <input type="email" className="form-control" placeholder="Enter email" />

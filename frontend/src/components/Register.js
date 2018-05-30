@@ -55,22 +55,22 @@ class Register extends Component {
                     <h1>Register</h1>
                     <form onSubmit={this.handleFormSubmit}>
                         <div className="form-group">
-                            <label for="inputEmail">Email address</label>
+                            <label htmlFor="inputEmail">Email address</label>
                             <input type="email" className="form-control" id="inputEmail" placeholder="Enter email" value={this.state.inputEmail} onChange={this.handleInputChange} />
                         </div>
                         <div className="form-group">
-                            <label for="inputUsername">Username</label>
+                            <label htmlFor="inputUsername">Username</label>
                             <input type="text" className="form-control" id="inputUsername" placeholder="Enter username" value={this.state.inputUsername} onChange={this.handleInputChange} />
                             <blockquote className="blockquote">
                                 u/{this.state.inputUsername}
                             </blockquote>
                         </div>
                         <div className="form-group">
-                            <label for="inputPassword">Password</label>
+                            <label htmlFor="inputPassword">Password</label>
                             <input type="password" className="form-control" id="inputPassword" placeholder="Enter password" value={this.state.inputPassword} onChange={this.handleInputChange} />
                         </div>
                         <div className="form-group">
-                            <label for="inputName">Name</label>
+                            <label htmlFor="inputName">Name</label>
                             <input type="text" className="form-control" id="inputName" placeholder="Enter name" value={this.state.inputName} onChange={this.handleInputChange} />
                         </div>
                         <button type="submit" className="btn btn-primary">Register</button>

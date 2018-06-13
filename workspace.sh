@@ -1,4 +1,4 @@
-projectDir="`dirname \"$0\"`"
+projectDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 subl
 

@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import toastr from 'toastr';
+
 import Header from './partial/Header.js';
+
+import 'toastr/build/toastr.min.css';
+
 
 class Login extends Component {
     constructor(props){
@@ -32,10 +38,12 @@ class Login extends Component {
                     <h1>Login</h1>
                     <form>
                         <div className="form-group">
-                            <input type="email" className="form-control" placeholder="Enter email" value={this.state.inputEmail} onChange={this.handleInputChange} />
+                            <label htmlFor="inputEmail">Email address</label>
+                            <input type="email" className="form-control" id="inputEmail" placeholder="Enter email" value={this.state.inputEmail} onChange={this.handleInputChange} />
                         </div>
                         <div className="form-group">
-                            <input type="password" className="form-control" placeholder="Enter password" value={this.state.inputPassword} onChange={this.handleInputChange} />
+                            <label htmlFor="inputPassword">Password</label>
+                            <input type="password" className="form-control" id="inputPassword" placeholder="Enter password" value={this.state.inputPassword} onChange={this.handleInputChange} />
                         </div>
                         <button className="btn btn-primary">Login</button>
                     </form>

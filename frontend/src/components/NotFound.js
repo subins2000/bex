@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom'
 import Header from './partial/Header.js';
 
+
 class NotFound extends Component {
     componentDidMount(){
         document.title = '404 Not Found'

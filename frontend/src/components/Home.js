@@ -3,6 +3,7 @@ import Header from './partial/Header.js';
 
 import './css/Home.css';
 
+
 class Home extends Component {
     render() {
         return (

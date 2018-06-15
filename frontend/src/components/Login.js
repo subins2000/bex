@@ -12,7 +12,7 @@ class Login extends Component {
         super(props);
 
         this.state = {
-            inputEmail: '',
+            inputUsername: '',
             inputPassword: '',
         };
 
@@ -29,14 +29,16 @@ class Login extends Component {
 
         var $this = this;
 
-        axios.post('/api/users/login', {
-            email: this.state.inputEmail,
-            password: this.state.inputPassword,
+        axios.get('/api/users/login', {
+            auth: {
+                username: this.state.inputUsername,
+                password: this.state.inputPassword,
+            }
         }).then(function(response) {
 
             if (response.status === 200) {
                 toastr.info('Logged in !');
-                $this.props.history.push('/home');
+                //$this.props.history.push('/home');
             }
 
         }).catch(function (error) {
@@ -52,8 +54,8 @@ class Login extends Component {
                     <h1>Login</h1>
                     <form onSubmit={this.handleFormSubmit}>
                         <div className="form-group">
-                            <label htmlFor="inputEmail">Email address</label>
-                            <input type="email" className="form-control" id="inputEmail" placeholder="Enter email" value={this.state.inputEmail} onChange={this.handleInputChange} />
+                            <label htmlFor="inputUsername">Username</label>
+                            <input type="username" className="form-control" id="inputUsername" placeholder="Enter username" value={this.state.inputUsername} onChange={this.handleInputChange} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="inputPassword">Password</label>

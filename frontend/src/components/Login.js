@@ -28,6 +28,20 @@ class Login extends Component {
         e.preventDefault();
 
         var $this = this;
+
+        axios.post('/api/users/login', {
+            email: this.state.inputEmail,
+            password: this.state.inputPassword,
+        }).then(function(response) {
+
+            if (response.status === 200) {
+                toastr.info('Logged in !');
+                $this.props.history.push('/home');
+            }
+
+        }).catch(function (error) {
+            console.log(error);
+        });
     }
 
     render() {
@@ -36,7 +50,7 @@ class Login extends Component {
                 <Header/>
                 <div className="container" id="content">
                     <h1>Login</h1>
-                    <form>
+                    <form onSubmit={this.handleFormSubmit}>
                         <div className="form-group">
                             <label htmlFor="inputEmail">Email address</label>
                             <input type="email" className="form-control" id="inputEmail" placeholder="Enter email" value={this.state.inputEmail} onChange={this.handleInputChange} />

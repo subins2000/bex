@@ -6,6 +6,7 @@ import Header from './partial/Header.js';
 
 import 'toastr/build/toastr.min.css';
 
+
 class Register extends Component {
     constructor(props){
         super(props);

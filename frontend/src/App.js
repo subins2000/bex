@@ -22,6 +22,14 @@ import NotFound from './components/NotFound.js';
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
+export function setAuthToken(token) {
+    axios.defaults.headers.common['Authorization'] = token;
+}
+
+if (localStorage.getItem('authtoken') != null) {
+    setAuthToken(localStorage.getItem('authtoken'));
+}
+
 class App extends Component {
     render() {
         return (

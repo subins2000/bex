@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import toastr from 'toastr';
 
-import setAuthToken from '../App.js';
+import {setAuthToken} from '../App.js';
 import Header from './partial/Header.js';
 
 import 'toastr/build/toastr.min.css';

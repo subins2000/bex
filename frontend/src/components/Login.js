@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import toastr from 'toastr';
 
+import setAuthToken from '../App.js';
 import Header from './partial/Header.js';
 
 import 'toastr/build/toastr.min.css';
@@ -35,10 +36,14 @@ class Login extends Component {
                 password: this.state.inputPassword,
             }
         }).then(function(response) {
+            var token = response.data.token;
 
             if (response.status === 200) {
+                localStorage.setItem('authtoken', token);
+                setAuthToken(token);
+
                 toastr.info('Logged in !');
-                //$this.props.history.push('/home');
+                $this.props.history.push('/home');
             }
 
         }).catch(function (error) {

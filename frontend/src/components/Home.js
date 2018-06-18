@@ -24,8 +24,25 @@ class Home extends Component {
 
     dashboard() {
         return (
-            <div className="container container-fluid" id="content">
+            <div className="container" id="content">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <span>My Books</span>&nbsp;
+                                <a href="#" class="btn btn-primary btn-sm">
+                                    <i class="material-icons">library_add</i>
+                                </a>
+                            </div>
+                            <div class="card-body">
 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+
+                    </div>
+                </div>
             </div>
         );
     }

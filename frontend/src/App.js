@@ -26,7 +26,11 @@ export function setAuthToken(token) {
     axios.defaults.headers.common['Authorization'] = token;
 }
 
-if (localStorage.getItem('authtoken') != null) {
+export function isLoggedIn() {
+    return localStorage.getItem('authtoken') != null;
+}
+
+if (isLoggedIn()) {
     setAuthToken(localStorage.getItem('authtoken'));
 }
 

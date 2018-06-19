@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from './partial/Header.js';
-import {isLoggedIn} from '../App.js'
+import {isLoggedIn} from '../App.js';
 
 import './css/Home.css';
 

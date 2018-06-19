@@ -30,7 +30,7 @@ class Home extends Component {
                         <div class="card">
                             <div class="card-header">
                                 <span>My Books</span>&nbsp;
-                                <a href="#" class="btn btn-primary btn-sm">
+                                <a class="btn btn-primary btn-sm">
                                     <i class="material-icons">library_add</i>
                                 </a>
                             </div>

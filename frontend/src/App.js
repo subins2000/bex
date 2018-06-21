@@ -27,17 +27,12 @@ userStore.subscribe(function() {
     var token = userStore.getState()['authToken'];
 
     axios.defaults.headers.common['Authorization'] = token;
+
+    localStorage.setItem('userState', JSON.stringify(userStore.getState()));
 });
 
 export function isLoggedIn() {
     return userStore.getState()['loggedIn'];
-}
-
-if (localStorage.getItem('authToken') != null) {
-    userStore.dispatch({
-        type: 'USER_SET_AUTH_TOKEN',
-        authToken: localStorage.getItem('authToken'),
-    });
 }
 
 class App extends Component {

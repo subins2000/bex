@@ -3,13 +3,13 @@ import {
     Link
 } from 'react-router-dom'
 
-import {isLoggedIn} from '../../App.js';
+import { isLoggedIn } from '../../App.js';
 
 
 class Header extends Component {
     userButtons() {
         return (
-            <div class="dropdown">
+            <div className="dropdown">
                 <a className="btn btn-primary"></a>&nbsp;
                 <a className="btn btn-light" to="/register">Log Out</a>
             </div>

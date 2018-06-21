@@ -24,8 +24,14 @@ class UsersLogin(APIView):
     def get(self, request, format=None):
         token, created = Token.objects.get_or_create(user=request.user)
 
+        user = Users.objects.get(username=request.user.username)
+
+        print(vars(request.user));
+
         content = {
+            'name': user.name,
             'token': str(token),
+            'username': user.username,
         }
 
         return Response(content)

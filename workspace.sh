@@ -1,6 +1,6 @@
 projectDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-subl
+subl "$projectDir/project.sublime-project"
 
 thunar $projectDir &
 

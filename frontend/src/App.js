@@ -1,15 +1,16 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import {
     BrowserRouter as Router,
     Route,
     Switch,
-} from 'react-router-dom'
-import axios from 'axios';
+} from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './components/css/App.css';
 
+import { userStore } from './store.js';
 import Home from './components/Home.js';
 import Login from './components/Login.js';
 import Register from './components/Register.js';
@@ -22,16 +23,21 @@ import NotFound from './components/NotFound.js';
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
-export function setAuthToken(token) {
+userStore.subscribe(function() {
+    var token = userStore.getState()['authToken'];
+
     axios.defaults.headers.common['Authorization'] = token;
-}
+});
 
 export function isLoggedIn() {
-    return localStorage.getItem('authtoken') != null;
+    return userStore.getState()['loggedIn'];
 }
 
-if (isLoggedIn()) {
-    setAuthToken(localStorage.getItem('authtoken'));
+if (localStorage.getItem('authToken') != null) {
+    userStore.dispatch({
+        type: 'USER_SET_AUTH_TOKEN',
+        authToken: localStorage.getItem('authToken'),
+    });
 }
 
 class App extends Component {

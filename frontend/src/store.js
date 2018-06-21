@@ -27,4 +27,8 @@ function userReducer(state = initialUser, action) {
 
 export const userStore = createStore(userReducer, initialUser);
 
+export function isLoggedIn() {
+    return userStore.getState()['loggedIn'];
+}
+
 export default userStore;

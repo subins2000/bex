@@ -31,10 +31,6 @@ userStore.subscribe(function() {
     localStorage.setItem('userState', JSON.stringify(userStore.getState()));
 });
 
-export function isLoggedIn() {
-    return userStore.getState()['loggedIn'];
-}
-
 class App extends Component {
     render() {
         return (

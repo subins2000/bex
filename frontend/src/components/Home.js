@@ -25,21 +25,21 @@ class Home extends Component {
     dashboard() {
         return (
             <div className="container" id="content">
-                <div class="row">
-                    <div class="col-8">
-                        <div class="card">
-                            <div class="card-header">
+                <div className="row">
+                    <div className="col-8">
+                        <div className="card">
+                            <div className="card-header">
                                 <span>My Books</span>&nbsp;
-                                <a class="btn btn-primary btn-sm">
-                                    <i class="material-icons">library_add</i>
+                                <a className="btn btn-primary btn-sm">
+                                    <i className="material-icons">library_add</i>
                                 </a>
                             </div>
-                            <div class="card-body">
+                            <div className="card-body">
 
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div className="col-4">
 
                     </div>
                 </div>

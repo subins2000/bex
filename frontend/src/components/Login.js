@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import toastr from 'toastr';
 
-import { isLoggedIn, setAuthToken } from '../App.js';
-import { userStore } from '../store.js';
+import { isLoggedIn, userStore } from '../store.js';
 import Header from './partial/Header.js';
 
 import 'toastr/build/toastr.min.css';
@@ -44,10 +43,11 @@ class Login extends Component {
             var token = response.data.token;
 
             if (response.status === 200) {
-                localStorage.setItem('authtoken', token);
                 userStore.dispatch({
-                    type: 'USER_SET_AUTH_TOKEN',
+                    type: 'USER_SET_INFO',
                     authToken: token,
+                    name: response.data.name,
+                    username: response.data.username,
                 });
 
                 toastr.info('Logged in !');

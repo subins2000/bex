@@ -3,14 +3,16 @@ import {
     Link
 } from 'react-router-dom'
 
-import { isLoggedIn } from '../../App.js';
+import { isLoggedIn, userStore } from '../../store.js';
 
 
 class Header extends Component {
     userButtons() {
+        var name = userStore.getState()['name'];
+
         return (
             <div className="dropdown">
-                <a className="btn btn-primary"></a>&nbsp;
+                <a className="btn btn-primary">{name}</a>&nbsp;
                 <a className="btn btn-light" to="/register">Log Out</a>
             </div>
         );

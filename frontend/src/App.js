@@ -24,11 +24,14 @@ axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
 userStore.subscribe(function() {
-    var token = userStore.getState()['authToken'];
+    var state = userStore.getState();
+    var token = state['authToken'];
 
     axios.defaults.headers.common['Authorization'] = token;
 
-    localStorage.setItem('userState', JSON.stringify(userStore.getState()));
+    if (state['authToken'] !== null) {
+        localStorage.setItem('userState', JSON.stringify(state));
+    }
 });
 
 class App extends Component {

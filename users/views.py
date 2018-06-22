@@ -26,8 +26,6 @@ class UsersLogin(APIView):
 
         user = Users.objects.get(username=request.user.username)
 
-        print(vars(request.user));
-
         content = {
             'name': user.name,
             'token': str(token),

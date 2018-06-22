@@ -55,7 +55,11 @@ class Login extends Component {
             }
 
         }).catch(function (error) {
-            console.log(error);
+            if (typeof error.response.data.detail !== 'undefined') {
+                toastr.info(error.response.data.detail);
+            } else {
+                console.log(error);
+            }
         });
     }
 

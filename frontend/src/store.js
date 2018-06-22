@@ -8,6 +8,7 @@ const initialUser = localStorage.getItem('userState') ? JSON.parse(localStorage.
 };
 
 const USER_SET_INFO = {type: 'USER_SET_INFO'};
+const USER_LOG_OUT = {type: 'USER_LOG_OUT'};
 
 function userReducer(state = initialUser, action) {
     switch(action.type) {
@@ -18,6 +19,17 @@ function userReducer(state = initialUser, action) {
                 loggedIn: true,
                 name: action.name,
                 username: action.username,
+            };
+
+        case 'USER_LOG_OUT':
+            localStorage.removeItem('userState');
+
+            return {
+                ...state,
+                authToken: null,
+                loggedIn: false,
+                name: null,
+                username: null,
             };
 
         default:

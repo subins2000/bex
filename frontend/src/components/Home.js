@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {
+    Link,
+} from 'react-router-dom';
 
 import { isLoggedIn } from '../store.js';
 import Header from './partial/Header.js';
@@ -46,9 +49,9 @@ class Home extends Component {
                         <div className="card">
                             <div className="card-header">
                                 <span>My Books</span>&nbsp;
-                                <a className="btn btn-primary btn-sm">
+                                <Link to="/addbook" className="btn btn-primary btn-sm">
                                     <i className="material-icons">library_add</i>
-                                </a>
+                                </Link>
                             </div>
                             <div className="card-body">
 

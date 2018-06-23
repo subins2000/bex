@@ -7,8 +7,8 @@ const initialUser = localStorage.getItem('userState') ? JSON.parse(localStorage.
     username: null,
 };
 
-const USER_SET_INFO = {type: 'USER_SET_INFO'};
-const USER_LOG_OUT = {type: 'USER_LOG_OUT'};
+export const USER_SET_INFO = {type: 'USER_SET_INFO'};
+export const USER_LOG_OUT = {type: 'USER_LOG_OUT'};
 
 function userReducer(state = initialUser, action) {
     switch(action.type) {

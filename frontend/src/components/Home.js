@@ -29,6 +29,22 @@ class Home extends Component {
                     <div className="col-8">
                         <div className="card">
                             <div className="card-header">
+                                BeX
+                            </div>
+                            <div className="card-body">
+                                <form className="form-group row" id="bookSearchForm">
+                                    <div className="col-10">
+                                        <input type="text" className="form-control" id="bookQuery" name="bookQuery" placeholder="Search for books" />
+                                    </div>
+                                    <div className="col-2">
+                                        <button type="submit" className="btn btn-primary">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <p></p>
+                        <div className="card">
+                            <div className="card-header">
                                 <span>My Books</span>&nbsp;
                                 <a className="btn btn-primary btn-sm">
                                     <i className="material-icons">library_add</i>

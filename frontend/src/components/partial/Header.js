@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-    browserHistory,
     Link
 } from 'react-router-dom'
 

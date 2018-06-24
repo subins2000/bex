@@ -4,6 +4,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.generics import CreateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.status import HTTP_200_OK, HTTP_401_UNAUTHORIZED
 from rest_framework.views import APIView
 
 from users.models import Users
@@ -33,3 +34,11 @@ class UsersLogin(APIView):
         }
 
         return Response(content)
+
+class AuthCheck(APIView):
+
+    def get(self, request):
+        if request.user.is_authenticated:
+            return Response(status=HTTP_200_OK)
+        else:
+            return Response(status=HTTP_401_UNAUTHORIZED)

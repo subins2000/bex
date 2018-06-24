@@ -6,7 +6,7 @@ import {
     Switch,
 } from 'react-router-dom';
 
-import { userStore } from './store.js';
+import { isLoggedIn, userStore } from './store.js';
 import AddBook from './components/AddBook.js';
 import Home from './components/Home.js';
 import Login from './components/Login.js';
@@ -34,6 +34,19 @@ userStore.subscribe(function() {
         localStorage.setItem('userState', JSON.stringify(state));
     }
 });
+
+if (isLoggedIn()) {
+    axios.defaults.headers.common['Authorization'] = userStore.getState()['authToken'];
+
+    axios.get('/api/users/authcheck').catch(function(error) {
+        if (error.response.status === 401) {
+            userStore.dispatch({
+                type: 'USER_LOG_OUT',
+            });
+            window.location.reload();
+        }
+    });
+}
 
 class App extends Component {
     render() {

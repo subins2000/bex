@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './components/css/App.css';
 
 import { userStore } from './store.js';
+import AddBook from './components/AddBook.js';
 import Home from './components/Home.js';
 import Login from './components/Login.js';
 import Register from './components/Register.js';
@@ -43,6 +44,7 @@ class App extends Component {
                         <Route exact path="/" component={Home} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/register" component={Register} />
+                        <Route exact path="/addbook" component={AddBook} />
                         <Route component={NotFound} />
                     </Switch>
                 </div>

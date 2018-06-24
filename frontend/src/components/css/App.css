@@ -5,3 +5,7 @@
 .btn-primary i {
     color: #fff;
 }
+
+.icon span {
+    margin-left: 5px;
+}

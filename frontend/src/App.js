@@ -6,16 +6,16 @@ import {
     Switch,
 } from 'react-router-dom';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import './components/css/App.css';
-
 import { userStore } from './store.js';
 import AddBook from './components/AddBook.js';
 import Home from './components/Home.js';
 import Login from './components/Login.js';
-import Register from './components/Register.js';
 import NotFound from './components/NotFound.js';
+import Register from './components/Register.js';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import './components/css/App.css';
 
 
 /**

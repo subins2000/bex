@@ -40,7 +40,10 @@ class Home extends Component {
                                         <input type="text" className="form-control" id="bookQuery" name="bookQuery" placeholder="Search for books" />
                                     </div>
                                     <div className="col-2">
-                                        <button type="submit" className="btn btn-primary">Search</button>
+                                        <button type="submit" className="btn btn-primary icon">
+                                            <i className="material-icons">search</i>
+                                            <span>Search</span>
+                                        </button>
                                     </div>
                                 </form>
                             </div>
@@ -50,7 +53,7 @@ class Home extends Component {
                             <div className="card-header">
                                 <span>My Books</span>&nbsp;
                                 <Link to="/addbook" className="btn btn-primary btn-sm icon">
-                                    <i className="material-icons float-left">library_add</i>
+                                    <i className="material-icons">library_add</i>
                                     <span>Add Book</span>
                                 </Link>
                             </div>

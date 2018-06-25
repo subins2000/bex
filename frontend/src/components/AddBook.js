@@ -68,14 +68,14 @@ class AddBook extends Component {
                         <div className="form-group row">
                             <div className="col">
                                 <label htmlFor="inputSemester">Semester</label>
-                                <select className="custom-select" id="inputSemester" value="{this.state.inputSemester}" onChange={this.handleInputChange}>
+                                <select className="custom-select" id="inputSemester" value={this.state.inputSemester} onChange={this.handleInputChange}>
                                     <option value="0">Not Applicable</option>
                                     {[1,2,3,4,5,6,7,8].map((i) => <option value={i} key={i}>{i}</option>)}
                                 </select>
                             </div>
                             <div className="col">
                                 <label htmlFor="inputBranch">Branch</label>
-                                <select className="custom-select" id="inputBranch" value="{this.state.inputBranch}" onChange={this.handleInputChange}>
+                                <select className="custom-select" id="inputBranch" value={this.state.inputBranch} onChange={this.handleInputChange}>
                                     <option value="0">Not Applicable</option>
                                     {branchOptions}
                                 </select>

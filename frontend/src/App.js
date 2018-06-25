@@ -28,7 +28,7 @@ userStore.subscribe(function() {
     var state = userStore.getState();
     var token = state['authToken'];
 
-    axios.defaults.headers.common['Authorization'] = token;
+    axios.defaults.headers.common['Authorization'] = 'Token ' + token;
 
     if (state['authToken'] !== null) {
         localStorage.setItem('userState', JSON.stringify(state));
@@ -36,7 +36,7 @@ userStore.subscribe(function() {
 });
 
 if (isLoggedIn()) {
-    axios.defaults.headers.common['Authorization'] = userStore.getState()['authToken'];
+    axios.defaults.headers.common['Authorization'] = 'Token ' + userStore.getState()['authToken'];
 
     axios.get('/api/users/authcheck').catch(function(error) {
         if (error.response.status === 401) {

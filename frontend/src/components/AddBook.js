@@ -18,6 +18,8 @@ class AddBook extends Component {
         this.state = {
             inputTitle: '',
             inputAuthor: '',
+            inputSemester: '0',
+            inputBranch: '0',
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);

@@ -20,6 +20,7 @@ class AddBook extends Component {
             inputAuthor: '',
             inputSemester: '0',
             inputBranch: '0',
+            inputDescription: '',
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -83,7 +84,7 @@ class AddBook extends Component {
                         </div>
                         <div class="form-group">
                             <label htmlFor="inputDescription">Description</label>
-                            <textarea type="text" className="form-control" id="inputDescription" placeholder="Description of the book. Year of publication, what it is about, condition of the book etc." value={this.state.inputDescription} onChange={this.handleInputChange}></textarea>
+                            <textarea type="text" className="form-control" id="inputDescription" placeholder="Description of the book. Year of publication, what it is about, condition of the book etc." value={this.state.inputDescription} onChange={this.handleInputChange} />
                         </div>
                         <button className="btn btn-primary">Add Book</button>
                     </form>

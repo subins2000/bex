@@ -19,7 +19,7 @@ class UsersRegister(CreateAPIView):
 
 class UsersLogin(APIView):
 
-    authentication_classes = (TokenAuthentication, BasicAuthentication,)
+    authentication_classes = (BasicAuthentication,)
     permission_classes = (IsAuthenticated,)
 
     def get(self, request, format=None):

@@ -81,6 +81,10 @@ class AddBook extends Component {
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label htmlFor="inputDescription">Description</label>
+                            <textarea type="text" className="form-control" id="inputDescription" placeholder="Description of the book. Year of publication, what it is about, condition of the book etc." value={this.state.inputDescription} onChange={this.handleInputChange}></textarea>
+                        </div>
                         <button className="btn btn-primary">Add Book</button>
                     </form>
                 </div>

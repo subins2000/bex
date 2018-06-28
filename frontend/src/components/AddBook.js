@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import {
     Link,
@@ -35,6 +36,12 @@ class AddBook extends Component {
         e.preventDefault();
 
         var $this = this;
+
+        axios.post('/api/books/add', this.state).then(function(response) {
+
+        }).catch(function(error) {
+            console.log(error);
+        });
     }
 
     render() {

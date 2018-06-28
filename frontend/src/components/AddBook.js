@@ -37,10 +37,24 @@ class AddBook extends Component {
 
         var $this = this;
 
-        axios.post('/api/books/add', this.state).then(function(response) {
+        axios.post('/api/books/add', {
+            title: this.state.inputTitle,
+            author: this.state.inputAuthor,
+            semester: this.state.inputSemester,
+            branch: this.state.inputBranch,
+            description: this.state.inputDescription,
+        }).then(function(response) {
+
+            if (response.status === 200) {
+
+            }
 
         }).catch(function(error) {
             console.log(error);
+
+            if (error.response.status === 401) {
+
+            }
         });
     }
 

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import {
     Link,
 } from 'react-router-dom';
+import toastr from 'toastr';
 
 import { isLoggedIn } from '../store.js';
 import Header from './partial/Header.js';
@@ -16,13 +17,14 @@ class AddBook extends Component {
             this.props.history.push('/login');
         }
 
-        this.state = {
+        this.initialState = {
             inputTitle: '',
             inputAuthor: '',
             inputSemester: '0',
             inputBranch: '0',
             inputDescription: '',
         };
+        this.state = this.initialState;
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -37,6 +39,13 @@ class AddBook extends Component {
 
         var $this = this;
 
+        for (var key in this.state) {
+            if (this.state[key] === '') {
+                toastr.info('All fields should be filled');
+                return;
+            }
+        }
+
         axios.post('/api/books/add', {
             title: this.state.inputTitle,
             author: this.state.inputAuthor,
@@ -45,8 +54,9 @@ class AddBook extends Component {
             description: this.state.inputDescription,
         }).then(function(response) {
 
-            if (response.status === 200) {
-
+            if (response.status === 201) {
+                toastr.info('Book added !');
+                $this.setState($this.initialState);
             }
 
         }).catch(function(error) {

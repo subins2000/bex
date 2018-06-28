@@ -1,8 +1,5 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import {
-    Link,
-} from 'react-router-dom';
 import toastr from 'toastr';
 
 import { isLoggedIn } from '../store.js';
@@ -113,7 +110,7 @@ class AddBook extends Component {
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label htmlFor="inputDescription">Description</label>
                             <textarea type="text" className="form-control" id="inputDescription" placeholder="Description of the book. Year of publication, what it is about, condition of the book etc." value={this.state.inputDescription} onChange={this.handleInputChange} />
                         </div>

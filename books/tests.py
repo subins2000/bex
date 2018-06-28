@@ -2,13 +2,14 @@ from django.contrib.auth.models import AnonymousUser, User
 from django.test import TestCase
 
 from rest_framework.authtoken.models import Token
-from rest_framework.test import APITestCase
+from rest_framework.test import APITestCase, APIClient
 
 from .views import BookAdd
 
 
 class BookAddTest(APITestCase):
     def setUp(self):
+        self.client = APIClient(enforce_csrf_checks=True)
         self.user = User.objects.create_user(
             username='jacob',
             email='jacob@example.com',
@@ -17,7 +18,6 @@ class BookAddTest(APITestCase):
         self.authToken = 'Token ' + str(Token.objects.create(user=self.user))
 
     def testUserAdd(self):
-        print(self.authToken)
         response = self.client.post(
             '/api/books/add',
             HTTP_AUTHORIZATION=self.authToken,

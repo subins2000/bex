@@ -1,12 +1,12 @@
 from django.db import models
 
-from users.models import Users
+from users.models import User
 
 
 class Books(models.Model):
 
     user = models.ForeignKey(
-        Users,
+        User,
         on_delete=models.CASCADE,
         db_column='user',
     )

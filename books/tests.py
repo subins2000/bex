@@ -34,16 +34,29 @@ class BookAddTest(APITestCase):
         self.assertEqual(response.status_code, 401)
 
     def testUserAdd(self):
+        bookTitle = 'Calculus';
+        bookAuthor = 'Ben';
+        bookSemester = '1';
+        bookBranch = 'cse';
+        bookDescription = 'Textbook for KTU';
+
         response = self.client.post(
             '/api/books/add',
             HTTP_AUTHORIZATION=self.authToken,
             data={
-                'title': 'Calculus',
-                'author': 'Ben',
-                'semester': '1',
-                'branch': 'cse',
-                'description': 'Textbook for KTU',
+                'title': bookTitle,
+                'author': bookAuthor,
+                'semester': bookSemester,
+                'branch': bookBranch,
+                'description': bookDescription,
             }
         )
 
         self.assertEqual(response.status_code, 201)
+
+        book = Books.objects.get(title=bookTitle)
+        self.assertEqual(book.title, bookTitle)
+        self.assertEqual(book.author, bookAuthor)
+        self.assertEqual(book.semester, int(bookSemester))
+        self.assertEqual(book.branch, bookBranch)
+        self.assertEqual(book.description, bookDescription)

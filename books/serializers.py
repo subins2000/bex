@@ -4,6 +4,10 @@ from books.models import Books
 
 class BooksSerializer(serializers.ModelSerializer):
 
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault(),
+    )
+
     class Meta:
 
         model = Books

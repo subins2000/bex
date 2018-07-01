@@ -26,7 +26,7 @@ function userReducer(state = initialUser, action) {
         case 'USER_SET_BOOKS':
             return {
                 ...state,
-                books: {},
+                books: action.books,
             };
 
         case 'USER_LOG_OUT':

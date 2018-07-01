@@ -2,12 +2,14 @@ import { createStore } from 'redux';
 
 const initialUser = localStorage.getItem('userState') ? JSON.parse(localStorage.getItem('userState')) : {
     authToken: null,
+    books: {},
     loggedIn: false,
     name: null,
     username: null,
 };
 
 export const USER_SET_INFO = {type: 'USER_SET_INFO'};
+export const USER_SET_BOOKS = {type: 'USER_SET_BOOKS'};
 export const USER_LOG_OUT = {type: 'USER_LOG_OUT'};
 
 function userReducer(state = initialUser, action) {
@@ -21,12 +23,19 @@ function userReducer(state = initialUser, action) {
                 username: action.username,
             };
 
+        case 'USER_SET_BOOKS':
+            return {
+                ...state,
+                books: {},
+            };
+
         case 'USER_LOG_OUT':
             localStorage.removeItem('userState');
 
             return {
                 ...state,
                 authToken: null,
+                books: {},
                 loggedIn: false,
                 name: null,
                 username: null,

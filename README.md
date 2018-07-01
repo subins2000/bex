@@ -7,7 +7,11 @@ BeX is a webapp for students to find and exchange books. It is a college-level a
 The project is divided into two, frontend (NodeJS) and backend (django) in their respective folders.
 
 * Clone the repo
-* Set up python virtual environment. Run these from the root folder of the cloned repo :
+* Set up python virtual environment :
+  ```bash
+  sudo apt-get install python3-pip python3-venv
+  ```
+* Run these from the root folder of the cloned repo :
     ```bash
     python3 -m venv .
     source bin/activate

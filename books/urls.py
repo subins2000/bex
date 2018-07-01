@@ -20,5 +20,6 @@ from . import views
 
 urlpatterns = [
     path('api/books/add', views.BookAdd.as_view()),
+    path('api/books/list', views.BookList.as_view()),
 ]
 

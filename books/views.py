@@ -18,8 +18,10 @@ class BookList(ListAPIView):
     """List books of (added by) user
     """
 
-    queryset = Books.objects.all()
     serializer_class = BooksSerializer
 
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        return Books.objects.filter(user=self.request.user).values()

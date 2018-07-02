@@ -23,6 +23,8 @@ class AddBook extends Component {
         };
         this.state = this.initialState;
 
+        this.inputPhoto = React.createRef();
+
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
@@ -98,7 +100,7 @@ class AddBook extends Component {
                             <div className="col">
                                 <label>Photo</label>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputPhoto" />
+                                    <input type="file" class="custom-file-input" id="inputPhoto" ref={this.inputPhoto} />
                                     <label class="custom-file-label" for="inputPhoto">Choose Photo</label>
                                 </div>
                             </div>

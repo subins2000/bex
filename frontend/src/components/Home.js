@@ -104,7 +104,11 @@ class Home extends Component {
                                     <span>Add Book</span>
                                 </Link>
                             </div>
-                            <div className="card-body">{this.state.bookList}</div>
+                            <div className="card-body">
+                                <div class="card-columns">
+                                {this.state.bookList}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="col-4">

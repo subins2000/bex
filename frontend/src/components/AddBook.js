@@ -96,6 +96,13 @@ class AddBook extends Component {
                         </div>
                         <div className="form-group row">
                             <div className="col">
+                                <label>Photo</label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="inputPhoto" />
+                                    <label class="custom-file-label" for="inputPhoto">Choose Photo</label>
+                                </div>
+                            </div>
+                            <div className="col">
                                 <label htmlFor="inputSemester">Semester</label>
                                 <select className="custom-select" id="inputSemester" value={this.state.inputSemester} onChange={this.handleInputChange}>
                                     <option value="0">Not Applicable</option>

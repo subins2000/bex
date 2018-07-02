@@ -1,15 +1,42 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import {
     Link,
 } from 'react-router-dom';
 
-import { isLoggedIn } from '../store.js';
+import { isLoggedIn, userStore } from '../store.js';
 import Header from './partial/Header.js';
 
 import './css/Home.css';
 
 
 class Home extends Component {
+    constructor(props){
+        super(props);
+
+        if (isLoggedIn()) {
+            this.props.history.push('/');
+        }
+
+        this.state = {
+            bookList: [],
+        };
+    }
+
+    updateUserBooks() {
+        if (!isLoggedIn())
+            return;
+
+        axios.get('/api/books/list').then(function(response) {
+            if (response.status === 200) {
+                userStore.dispatch({
+                    type: 'USER_SET_BOOKS',
+                    books: response.data,
+                });
+            }
+        });
+    }
+
     intro() {
         return (
             <div className="container" id="content">
@@ -26,6 +53,28 @@ class Home extends Component {
     }
 
     dashboard() {
+        var $this = this;
+        userStore.subscribe(function() {
+            var books = userStore.getState()['books'],
+                bookList = [],
+                title = '';
+
+            for (var i = 0;i < books.length;i++) {
+                title = books[i].title;
+                bookList.push(
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">{title}</p>
+                        </div>
+                    </div>
+                );
+            }
+
+            $this.setState({
+                bookList: bookList
+            });
+        });
+
         return (
             <div className="container" id="content">
                 <div className="row">
@@ -57,9 +106,7 @@ class Home extends Component {
                                     <span>Add Book</span>
                                 </Link>
                             </div>
-                            <div className="card-body">
-
-                            </div>
+                            <div className="card-body">{this.state.bookList}</div>
                         </div>
                     </div>
                     <div className="col-4">

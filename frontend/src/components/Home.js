@@ -54,15 +54,14 @@ class Home extends Component {
         var $this = this;
         userStore.subscribe(function() {
             var books = userStore.getState()['books'],
-                bookList = [],
-                title = '';
+                bookList = [];
 
             for (var i = 0;i < books.length;i++) {
-                title = books[i].title;
                 bookList.push(
                     <div className="card">
                         <div className="card-body">
-                            <p className="card-text">{title}</p>
+                            <h5 className="card-title">{books[i].title}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{books[i].author}</h6>
                         </div>
                     </div>
                 );

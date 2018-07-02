@@ -14,13 +14,11 @@ class Home extends Component {
     constructor(props){
         super(props);
 
-        if (isLoggedIn()) {
-            this.props.history.push('/');
-        }
-
         this.state = {
             bookList: [],
         };
+
+        this.updateUserBooks();
     }
 
     updateUserBooks() {

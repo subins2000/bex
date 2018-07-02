@@ -45,13 +45,19 @@ class AddBook extends Component {
             }
         }
 
-        axios.post('/api/books/add', {
-            title: this.state.inputTitle,
-            author: this.state.inputAuthor,
-            semester: this.state.inputSemester,
-            branch: this.state.inputBranch,
-            description: this.state.inputDescription,
-        }).then(function(response) {
+        var data = new FormData();
+
+        data.append('title', this.state.inputTitle);
+        data.append('author', this.state.inputAuthor);
+        data.append('semester', this.state.inputSemester);
+        data.append('branch', this.state.inputBranch);
+        data.append('description', this.state.inputDescription);
+
+        if (this.inputPhoto.files.length === 1) {
+            data.append('photo', this.inputPhoto.files[0]);
+        }
+
+        axios.post('/api/books/add', data).then(function(response) {
 
             if (response.status === 201) {
                 toastr.info('Book added !');

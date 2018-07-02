@@ -60,9 +60,9 @@ class Home extends Component {
             for (var i = 0;i < books.length;i++) {
                 title = books[i].title;
                 bookList.push(
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-text">{title}</p>
+                    <div className="card">
+                        <div className="card-body">
+                            <p className="card-text">{title}</p>
                         </div>
                     </div>
                 );

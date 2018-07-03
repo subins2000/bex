@@ -20,6 +20,7 @@ class AddBook extends Component {
             inputSemester: '0',
             inputBranch: '0',
             inputDescription: '',
+            inputPhotoLabel: 'Choose Photo',
         };
         this.state = this.initialState;
 
@@ -61,7 +62,10 @@ class AddBook extends Component {
 
             if (response.status === 201) {
                 toastr.info('Book added !');
+
+                // Reset form
                 $this.setState($this.initialState);
+                $this.inputPhoto.current.value = '';
             }
 
         }).catch(function(error) {
@@ -121,9 +125,11 @@ class AddBook extends Component {
                                 <label>Photo</label>
                                 <div className="custom-file">
                                     <input type="file" accept="image/*" className="custom-file-input" id="inputPhoto" ref={this.inputPhoto} onChange={(e)=> {
-                                            e.target.parentElement.getElementsByTagName('label')[0].innerHTML = e.target.files[0].name
+                                            this.setState({
+                                                inputPhotoLabel: e.target.files[0].name,
+                                            });
                                         }} />
-                                    <label className="custom-file-label" htmlFor="inputPhoto">Choose Photo</label>
+                                    <label className="custom-file-label" htmlFor="inputPhoto">{this.state.inputPhotoLabel}</label>
                                 </div>
                             </div>
                         </div>

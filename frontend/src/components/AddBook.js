@@ -54,7 +54,7 @@ class AddBook extends Component {
         data.append('description', this.state.inputDescription);
 
         if (this.inputPhoto.files.length === 1) {
-            data.append('photo', this.inputPhoto.files[0]);
+            data.append('photo', this.inputPhoto.current.files[0]);
         }
 
         axios.post('/api/books/add', data).then(function(response) {
@@ -120,8 +120,10 @@ class AddBook extends Component {
                             <div className="col">
                                 <label>Photo</label>
                                 <div class="custom-file">
-                                    <input type="file" accept="image/*" class="custom-file-input" id="inputPhoto" ref={this.inputPhoto} />
-                                    <label class="custom-file-label" for="inputPhoto">Choose Photo</label>
+                                    <input type="file" accept="image/*" class="custom-file-input" id="inputPhoto" ref={this.inputPhoto} onChange={(e)=> {
+                                            e.target.parentElement.getElementsByTagName('label')[0].innerHTML = e.target.files[0].name
+                                        }} />
+                                    <label class="custom-file-label" htmlFor="inputPhoto">Choose Photo</label>
                                 </div>
                             </div>
                         </div>

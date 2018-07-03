@@ -119,11 +119,11 @@ class AddBook extends Component {
                             </div>
                             <div className="col">
                                 <label>Photo</label>
-                                <div class="custom-file">
-                                    <input type="file" accept="image/*" class="custom-file-input" id="inputPhoto" ref={this.inputPhoto} onChange={(e)=> {
+                                <div className="custom-file">
+                                    <input type="file" accept="image/*" className="custom-file-input" id="inputPhoto" ref={this.inputPhoto} onChange={(e)=> {
                                             e.target.parentElement.getElementsByTagName('label')[0].innerHTML = e.target.files[0].name
                                         }} />
-                                    <label class="custom-file-label" htmlFor="inputPhoto">Choose Photo</label>
+                                    <label className="custom-file-label" htmlFor="inputPhoto">Choose Photo</label>
                                 </div>
                             </div>
                         </div>

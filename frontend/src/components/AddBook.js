@@ -104,13 +104,6 @@ class AddBook extends Component {
                         </div>
                         <div className="form-group row">
                             <div className="col">
-                                <label>Photo</label>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputPhoto" ref={this.inputPhoto} />
-                                    <label class="custom-file-label" for="inputPhoto">Choose Photo</label>
-                                </div>
-                            </div>
-                            <div className="col">
                                 <label htmlFor="inputSemester">Semester</label>
                                 <select className="custom-select" id="inputSemester" value={this.state.inputSemester} onChange={this.handleInputChange}>
                                     <option value="0">Not Applicable</option>
@@ -123,6 +116,13 @@ class AddBook extends Component {
                                     <option value="0">Not Applicable</option>
                                     {branchOptions}
                                 </select>
+                            </div>
+                            <div className="col">
+                                <label>Photo</label>
+                                <div class="custom-file">
+                                    <input type="file" accept="image/*" class="custom-file-input" id="inputPhoto" ref={this.inputPhoto} />
+                                    <label class="custom-file-label" for="inputPhoto">Choose Photo</label>
+                                </div>
                             </div>
                         </div>
                         <div className="form-group">

@@ -53,7 +53,7 @@ class AddBook extends Component {
         data.append('branch', this.state.inputBranch);
         data.append('description', this.state.inputDescription);
 
-        if (this.inputPhoto.files.length === 1) {
+        if (this.inputPhoto.current.files.length === 1) {
             data.append('photo', this.inputPhoto.current.files[0]);
         }
 

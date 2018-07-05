@@ -15,5 +15,9 @@ class Books(models.Model):
     semester = models.IntegerField()
     branch = models.CharField(max_length=10)
     description = models.CharField(max_length=500)
-    photo = models.ImageField(blank=True, null=True)
+    photo = models.ImageField(
+        blank=True,
+        null=True,
+        upload_to='books/%Y/%m/%d/'
+    )
     created_at = models.DateTimeField(auto_now_add=True)

@@ -23,8 +23,9 @@ urlpatterns = [
     url(r'admin/', admin.site.urls),
     url(r'', include('books.urls')),
     url(r'', include('users.urls')),
-    url(r'^', TemplateView.as_view(template_name="index.html")),
 ]
 
 if settings.DEBUG:
     urlpatterns += static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += url(r'^', TemplateView.as_view(template_name="index.html")),

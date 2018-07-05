@@ -89,7 +89,7 @@ class AddBook extends Component {
         var branchOptions = [];
 
         for (var key in branches) {
-            branchOptions.push(<option value={key}>{branches[key]}</option>);
+            branchOptions.push(<option value={key} key={key}>{branches[key]}</option>);
         }
 
         return (

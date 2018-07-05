@@ -59,6 +59,7 @@ class Home extends Component {
             for (var i = 0;i < books.length;i++) {
                 bookList.push(
                     <div className="card">
+                        <img className="card-img-top" src={books[i].photo} alt="" />
                         <div className="card-body">
                             <h5 className="card-title">{books[i].title}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">{books[i].author}</h6>

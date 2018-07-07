@@ -12,6 +12,7 @@ import Home from './components/Home.js';
 import Login from './components/Login.js';
 import NotFound from './components/NotFound.js';
 import Register from './components/Register.js';
+import Profile from './components/Profile.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -58,6 +59,7 @@ class App extends Component {
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/addbook" component={AddBook} />
+                        <Route exact path="/u/:username" component={Profile} />
                         <Route component={NotFound} />
                     </Switch>
                 </div>

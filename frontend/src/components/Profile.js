@@ -14,6 +14,8 @@ class Profile extends Component {
             this.username = this.props.match.params.username;
         } else if (isLoggedIn()) {
             this.username = userStore.getState()['username'];
+        } else {
+            this.props.history.push('/login');
         }
     }
 

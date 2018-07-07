@@ -22,10 +22,11 @@ class Header extends Component {
 
     userButtons() {
         var name = userStore.getState()['name'];
+        var profileLink = '/u/' + userStore.getState()['username'];
 
         return (
             <div className="dropdown">
-                <a className="btn btn-primary">{name}</a>&nbsp;
+                <Link className="btn btn-primary" to={profileLink}>{name}</Link>&nbsp;
                 <Link className="btn btn-light" to="/" onClick={this.logOut}>Log Out</Link>
             </div>
         );

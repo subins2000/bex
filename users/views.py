@@ -4,7 +4,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.generics import CreateAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.status import HTTP_200_OK, HTTP_401_UNAUTHORIZED
+from rest_framework.status import HTTP_200_OK, HTTP_401_UNAUTHORIZED, HTTP_404_NOT_FOUND
 from rest_framework.views import APIView
 
 from users.models import Users
@@ -35,6 +35,7 @@ class UsersLogin(APIView):
 
         return Response(content)
 
+
 class AuthCheck(APIView):
 
     authentication_classes = (TokenAuthentication,)
@@ -44,3 +45,25 @@ class AuthCheck(APIView):
             return Response(status=HTTP_200_OK)
         else:
             return Response(status=HTTP_401_UNAUTHORIZED)
+
+
+class UserView(APIView):
+
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request, format=None):
+        username = request.data.get('username', None)
+
+        try:
+            user = Users.objects.get(username=username)
+
+            content = {
+                'name': user.name,
+                'username': user.username,
+            }
+
+            return Response(content)
+        except:
+            return Response(status=HTTP_404_NOT_FOUND)
+

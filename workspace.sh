@@ -9,4 +9,4 @@ xfce4-terminal -H \
     --tab -T frontend --working-directory=$projectDir -e 'env PROMPT_COMMAND="unset PROMPT_COMMAND; source bin/activate; cd frontend && node_modules/.bin/webpack --config config/webpack.config.dev.js --watch;" bash' \
     --tab -T git --working-directory=$projectDir -e 'env PROMPT_COMMAND="unset PROMPT_COMMAND; source bin/activate;" bash'
 
-firefox 'http://127.0.0.1:8000/'
+nohup firefox 'http://127.0.0.1:8000/' > /dev/null &

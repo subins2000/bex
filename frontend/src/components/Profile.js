@@ -7,7 +7,7 @@ import Header from './partial/Header.js';
 
 
 class Profile extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
         if (this.props.match.params.username) {
@@ -17,6 +17,17 @@ class Profile extends Component {
         } else {
             this.props.history.push('/login');
         }
+
+        this.getUserInfo = this.getUserInfo.bind(this);
+        this.getUserInfo();
+    }
+
+    getUserInfo() {
+        axios.post('/api/users/info', {
+            username: this.username,
+        }).then(function() {
+
+        });
     }
 
     render() {

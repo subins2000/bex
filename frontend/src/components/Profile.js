@@ -21,6 +21,7 @@ class Profile extends Component {
 
         this.state = {
             isNotFound: false,
+            name: '',
         }
 
         this.getUserInfo = this.getUserInfo.bind(this);
@@ -32,8 +33,10 @@ class Profile extends Component {
 
         axios.post('/api/users/info', {
             username: this.username,
-        }).then(function() {
-
+        }).then(function(r) {
+            $this.setState({
+                name: r.data.name
+            });
         }).catch(function(e) {
             if (e.response.status === 404) {
                 $this.setState({
@@ -48,6 +51,8 @@ class Profile extends Component {
             <div>
                 <Header/>
                 <div className="container" id="content">
+                    <h1>{this.state.name}</h1>
+                    <p class="text-muted">u/{this.username}</p>
                 </div>
             </div>
         );

@@ -60,10 +60,10 @@ class UserView(APIView):
             user = Users.objects.get(username=username)
 
             try:
-                books = Books.objects.filter(user=user).values_list(
+                books = Books.objects.filter(user=user).values(
                     'id',
-                    'title',
                     'photo',
+                    'title',
                 )
             except Exception as e:
                 print(e)

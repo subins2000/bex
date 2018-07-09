@@ -20,6 +20,7 @@ class Profile extends Component {
         }
 
         this.state = {
+            bookList: [],
             isNotFound: false,
             name: '',
         }
@@ -34,8 +35,24 @@ class Profile extends Component {
         axios.post('/api/users/info', {
             username: this.username,
         }).then(function(r) {
+            var books = r.data.books,
+                bookList = [];
+
+            for (var i = 0;i < books.length;i++) {
+                bookList.push(
+                    <div className="card">
+                        <img className="card-img-top" src={books[i].photo} alt="" />
+                        <div className="card-body">
+                            <h5 className="card-title">{books[i].title}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{books[i].author}</h6>
+                        </div>
+                    </div>
+                );
+            }
+
             $this.setState({
-                name: r.data.name
+                bookList: bookList,
+                name: r.data.name,
             });
         }).catch(function(e) {
             if (e.response.status === 404) {

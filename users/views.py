@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK, HTTP_401_UNAUTHORIZED, HTTP_404_NOT_FOUND
 from rest_framework.views import APIView
 
+from books.models import Books
 from users.models import Users
 from users.serializers import UsersSerializer
 
@@ -58,9 +59,20 @@ class UserView(APIView):
         try:
             user = Users.objects.get(username=username)
 
+            try:
+                books = Books.objects.filter(user=user).values_list(
+                    'id',
+                    'title',
+                    'photo',
+                )
+            except Exception as e:
+                print(e)
+                books = {}
+
             content = {
                 'name': user.name,
                 'username': user.username,
+                'books': books,
             }
 
             return Response(content)

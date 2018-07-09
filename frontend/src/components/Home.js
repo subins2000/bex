@@ -62,7 +62,7 @@ class Home extends Component {
                         <img className="card-img-top" src={books[i].photo} alt="" />
                         <div className="card-body">
                             <h5 className="card-title">{books[i].title}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{books[i].author}</h6>
+                            <h6 className="card-subtitle mb-2 text-muted">{books[i].author}</h6>
                         </div>
                     </div>
                 );
@@ -105,7 +105,7 @@ class Home extends Component {
                                 </Link>
                             </div>
                             <div className="card-body">
-                                <div class="card-columns">
+                                <div className="card-columns">
                                 {this.state.bookList}
                                 </div>
                             </div>

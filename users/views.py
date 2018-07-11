@@ -8,6 +8,7 @@ from rest_framework.status import HTTP_200_OK, HTTP_401_UNAUTHORIZED, HTTP_404_N
 from rest_framework.views import APIView
 
 from books.models import Books
+from books.serializers import BookReadSerializer
 from users.models import Users
 from users.serializers import UsersSerializer
 
@@ -60,11 +61,12 @@ class UserView(APIView):
             user = Users.objects.get(username=username)
 
             try:
-                books = Books.objects.filter(user=user).values(
-                    'id',
-                    'photo',
-                    'title',
-                )
+                books = Books.objects.filter(user=user).values()
+                books = BookReadSerializer(
+                    books,
+                    many=True,
+                    context={'request': request},
+                ).data
             except Exception as e:
                 print(e)
                 books = {}

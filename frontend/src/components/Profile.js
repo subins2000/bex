@@ -39,10 +39,9 @@ class Profile extends Component {
                 bookList = [];
 
             for (var i = 0;i < books.length;i++) {
-                var photo = '/' + books[i].photo;
                 bookList.push(
                     <div className="card" key={i}>
-                        <img className="card-img-top" src={photo} alt="" />
+                        <img className="card-img-top" src={books[i].photo} alt="" />
                         <div className="card-body">
                             <h5 className="card-title">{books[i].title}</h5>
                             <h6 className="card-subtitle mb-2 text-muted">{books[i].author}</h6>

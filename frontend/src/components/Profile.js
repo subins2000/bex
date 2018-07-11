@@ -23,6 +23,7 @@ class Profile extends Component {
             bookList: [],
             isNotFound: false,
             name: '',
+            bookCount: 0,
         }
 
         this.getUserInfo = this.getUserInfo.bind(this);
@@ -51,6 +52,7 @@ class Profile extends Component {
             }
 
             $this.setState({
+                bookCount: r.data.bookCount,
                 bookList: bookList,
                 name: r.data.name,
             });
@@ -72,7 +74,7 @@ class Profile extends Component {
                     <p className="text-muted">u/{this.username}</p>
                     <div className="card">
                         <div className="card-header">
-                            <span>My Books</span>&nbsp;
+                            <span>{this.state.bookCount} books</span>&nbsp;
                         </div>
                         <div className="card-body">
                             <div className="card-columns">

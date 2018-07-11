@@ -33,7 +33,6 @@ class BookReadSerializer(serializers.ModelSerializer):
         request = self.context.get('request', None)
 
         if book['photo']:
-            print(book['photo'])
             return request.build_absolute_uri(settings.MEDIA_URL + book['photo'])
         else:
             return None

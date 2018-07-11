@@ -61,9 +61,9 @@ class UserView(APIView):
             user = Users.objects.get(username=username)
 
             try:
-                books = Books.objects.filter(user=user).values()
+                booksQuerySet = Books.objects.filter(user=user).values()
                 books = BookReadSerializer(
-                    books,
+                    booksQuerySet,
                     many=True,
                     context={'request': request},
                 ).data
@@ -72,9 +72,10 @@ class UserView(APIView):
                 books = {}
 
             content = {
+                'bookCount': len(booksQuerySet),
+                'books': books,
                 'name': user.name,
                 'username': user.username,
-                'books': books,
             }
 
             return Response(content)

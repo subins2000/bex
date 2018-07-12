@@ -8,6 +8,7 @@ import {
 
 import { isLoggedIn, userStore } from './store.js';
 import AddBook from './components/AddBook.js';
+import Book from './components/Book.js';
 import Home from './components/Home.js';
 import Login from './components/Login.js';
 import NotFound from './components/NotFound.js';
@@ -60,6 +61,7 @@ class App extends Component {
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/addbook" component={AddBook} />
                         <Route exact path="/u/:username" component={Profile} />
+                        <Route exact path="/book/:bookID" component={Book} />
                         <Route component={NotFound} />
                     </Switch>
                 </div>

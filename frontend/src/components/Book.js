@@ -22,6 +22,21 @@ class Book extends Component {
                 isNotFound: true,
             });
         }
+
+        this.getBookInfo = this.getBookInfo.bind(this);
+        this.getBookInfo();
+    }
+
+    getBookInfo() {
+        var $this = this;
+
+        axios.post('/api/books/info', {
+            username: this.username,
+        }).then(function(r) {
+
+        }).catch(function(e) {
+
+        });
     }
 
     render() {

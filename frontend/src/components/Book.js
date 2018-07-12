@@ -10,6 +10,18 @@ class Book extends Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            isNotFound: false,
+        }
+
+        if (this.props.match.params.slug) {
+            this.username = this.props.match.params.username;
+        } else {
+            this.setState({
+                isNotFound: true,
+            });
+        }
     }
 
     render() {

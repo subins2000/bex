@@ -61,7 +61,7 @@ class App extends Component {
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/addbook" component={AddBook} />
                         <Route exact path="/u/:username" component={Profile} />
-                        <Route exact path="/book/:bookID" component={Book} />
+                        <Route exact path="/book/:slug" component={Book} />
                         <Route component={NotFound} />
                     </Switch>
                 </div>

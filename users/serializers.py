@@ -4,6 +4,12 @@ from users.models import Users
 
 class UsersSerializer(serializers.ModelSerializer):
 
+    email = serializers.EmailField(
+        allow_blank=False,
+        max_length=100,
+        required=True,
+    )
+
     class Meta:
         model = Users
         fields = ('username', 'password', 'email', 'name')

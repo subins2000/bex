@@ -16,7 +16,7 @@ class Book extends Component {
         }
 
         if (this.props.match.params.slug) {
-            this.username = this.props.match.params.username;
+            this.slug = this.props.match.params.slug;
         } else {
             this.setState({
                 isNotFound: true,
@@ -31,7 +31,7 @@ class Book extends Component {
         var $this = this;
 
         axios.post('/api/books/info', {
-            username: this.username,
+            slug: this.slug,
         }).then(function(r) {
 
         }).catch(function(e) {

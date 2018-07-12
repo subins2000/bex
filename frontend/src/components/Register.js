@@ -45,7 +45,6 @@ class Register extends Component {
 
         }).catch(function (error) {
             console.log(error);
-            toastr.error('Account Creation Failed');
 
             if (error.response.status === 400) {
                 var fields = ['email', 'name', 'password', 'username']
@@ -55,6 +54,8 @@ class Register extends Component {
                         toastr.error(error.response.data[field][0]);
                     }
                 }
+            } else {
+                toastr.error('Account Creation Failed');
             }
         });
     }

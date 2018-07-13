@@ -60,15 +60,11 @@ class Book extends Component {
         }
 
         if (!semester) {
-            semester = (
-                <span className="alert alert-info">Not applicable</span>
-            );
+            semester = 'Not applicable';
         }
 
         if (!branch) {
-            branch = (
-                <span className="alert alert-info">Not applicable</span>
-            );
+            branch = 'Not applicable';
         }
 
         return this.state.isNotFound ? <NotFound /> : (
@@ -86,12 +82,14 @@ class Book extends Component {
                                     <tr>
                                         <th scope="row">Author</th>
                                         <td>{this.state.author}</td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Semester</th>
-                                        <td>{semester}</td>
+                                        <td><span className="alert alert-info">{semester}</span></td>
                                         <th scope="row">Branch</th>
-                                        <td>{branch}</td>
+                                        <td><span className="alert alert-info">{branch}</span></td>
                                     </tr>
                                 </tbody>
                             </table>

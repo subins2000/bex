@@ -58,6 +58,12 @@ class Book extends Component {
             photo = (
                 <img src={this.state.photo} className="img-fluid" alt="" />
             );
+        } else {
+            photo = (
+                <center>
+                    <span class="alert alert-warning">No Photo Available</span>
+                </center>
+            );
         }
 
         if (!semester) {

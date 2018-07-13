@@ -40,7 +40,11 @@ class Book extends Component {
                 title: r.data.title,
             });
         }).catch(function(e) {
-
+            if (e.response.status === 404) {
+                $this.setState({
+                    isNotFound: true,
+                });
+            }
         });
     }
 
@@ -51,7 +55,7 @@ class Book extends Component {
 
         if (this.state.photo) {
             photo = (
-                <img src={this.state.photo} className="img-fluid" />
+                <img src={this.state.photo} className="img-fluid" alt="" />
             );
         }
 

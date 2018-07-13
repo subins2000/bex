@@ -88,8 +88,6 @@ class Book extends Component {
                                     <tr>
                                         <th scope="row">Author</th>
                                         <td>{this.state.author}</td>
-                                        <td></td>
-                                        <td></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Semester</th>
@@ -101,7 +99,7 @@ class Book extends Component {
                                     </tr>
                                     <tr>
                                         <th scope="row">Added on BeX</th>
-                                        <td><span className="alert alert-info">{added}</span></td>
+                                        <td>{added}</td>
                                     </tr>
                                 </tbody>
                             </table>

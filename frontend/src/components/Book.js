@@ -30,9 +30,7 @@ class Book extends Component {
     getBookInfo() {
         var $this = this;
 
-        axios.post('/api/books/info', {
-            slug: this.slug,
-        }).then(function(r) {
+        axios.get('/api/book/' + this.slug).then(function(r) {
 
         }).catch(function(e) {
 
@@ -44,6 +42,7 @@ class Book extends Component {
             <div>
                 <Header/>
                 <div className="container" id="content">
+                    <h2>{this.state.title}</h2>
                 </div>
             </div>
         );

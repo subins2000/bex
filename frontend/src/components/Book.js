@@ -77,36 +77,40 @@ class Book extends Component {
             <div>
                 <Header/>
                 <div className="container" id="content">
-                    <h1>{this.state.title}</h1>
-                    <div className="row card-body">
-                        <div className="col-3">
-                            {photo}
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>{this.state.title}</h1>
                         </div>
-                        <div className="col-9">
-                            <table className="table table-bordered table-hover">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Author</th>
-                                        <td>{this.state.author}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Semester</th>
-                                        <td><span className="alert alert-info">{semester}</span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Branch</th>
-                                        <td><span className="alert alert-info">{branch}</span></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Added on BeX</th>
-                                        <td>{added}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div className="card">
-                                <div class="card-header">Description</div>
-                                <div className="card-body">
-                                    {this.state.description}
+                        <div className="row card-body">
+                            <div className="col-3">
+                                {photo}
+                            </div>
+                            <div className="col-9">
+                                <table className="table table-bordered table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Author</th>
+                                            <td>{this.state.author}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Semester</th>
+                                            <td><span className="alert alert-info">{semester}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Branch</th>
+                                            <td><span className="alert alert-info">{branch}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Added on BeX</th>
+                                            <td>{added}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div className="card">
+                                    <div class="card-header">Description</div>
+                                    <div className="card-body">
+                                        {this.state.description}
+                                    </div>
                                 </div>
                             </div>
                         </div>

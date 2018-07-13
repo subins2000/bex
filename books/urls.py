@@ -13,7 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.urls import path
+from rest_framework.urlpatterns import format_suffix_patterns
 
 from . import views
 
@@ -21,6 +23,7 @@ from . import views
 urlpatterns = [
     path('api/books/add', views.BookAdd.as_view()),
     path('api/books/list', views.BookList.as_view()),
-    path('api/books/info', views.BookView.as_view()),
+    url(r'^api/book/(?P<slug>[-\w]+)$', views.BookInfo.as_view()),
 ]
 
+urlpatterns = format_suffix_patterns(urlpatterns)

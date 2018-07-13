@@ -1,6 +1,9 @@
+from django.http import Http404
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.status import HTTP_404_NOT_FOUND
 from rest_framework.views import APIView
 
 from books.models import Books
@@ -29,13 +32,20 @@ class BookList(ListAPIView):
         return Books.objects.filter(user=self.request.user).values()
 
 
-class BookView(APIView):
-
-    serializer_class = BookReadSerializer
+class BookInfo(APIView):
 
     authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
 
-    def get_queryset(self):
-        slug = self.request.get('slug', None)
-        return Books.objects.filter(slug=slug).values()
+    def get_object(self, slug):
+        try:
+            return Books.objects.get(slug=slug).__dict__
+        except Books.DoesNotExist:
+            raise Http404
+
+
+    def get(self, request, slug, format=None):
+        book = self.get_object(slug)
+        serializer = BookReadSerializer(book, context={'request': request})
+        return Response(serializer.data)
+

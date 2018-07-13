@@ -49,7 +49,8 @@ class Book extends Component {
     }
 
     render() {
-        var branch = this.state.branch,
+        var added,
+            branch = this.state.branch,
             photo,
             semester = this.state.semester;
 
@@ -67,6 +68,11 @@ class Book extends Component {
             branch = 'Not applicable';
         }
 
+        if (this.state.created_at) {
+            var d = new Date(this.state.created_at);
+            added = d.toString();
+        }
+
         return this.state.isNotFound ? <NotFound /> : (
             <div>
                 <Header/>
@@ -77,7 +83,7 @@ class Book extends Component {
                             {photo}
                         </div>
                         <div className="col-9">
-                            <table class="table">
+                            <table className="table table-bordered table-hover">
                                 <tbody>
                                     <tr>
                                         <th scope="row">Author</th>
@@ -88,8 +94,14 @@ class Book extends Component {
                                     <tr>
                                         <th scope="row">Semester</th>
                                         <td><span className="alert alert-info">{semester}</span></td>
+                                    </tr>
+                                    <tr>
                                         <th scope="row">Branch</th>
                                         <td><span className="alert alert-info">{branch}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Added on BeX</th>
+                                        <td><span className="alert alert-info">{added}</span></td>
                                     </tr>
                                 </tbody>
                             </table>

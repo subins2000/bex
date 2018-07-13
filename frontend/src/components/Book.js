@@ -1,5 +1,8 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import {
+    Link,
+} from 'react-router-dom';
 
 import Header from './partial/Header.js';
 import NotFound from './NotFound.js';
@@ -50,6 +53,7 @@ class Book extends Component {
 
     render() {
         var added,
+            bookViewURL = '/book/' + this.slug,
             branch = this.state.branch,
             photo,
             semester = this.state.semester;
@@ -85,7 +89,9 @@ class Book extends Component {
                 <div className="container" id="content">
                     <div class="card">
                         <div class="card-header">
-                            <h1>{this.state.title}</h1>
+                            <Link to={bookViewURL}>
+                                <h1>{this.state.title}</h1>
+                            </Link>
                         </div>
                         <div className="row card-body">
                             <div className="col-3">

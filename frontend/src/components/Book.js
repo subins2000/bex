@@ -93,6 +93,12 @@ class Book extends Component {
                                     </tr>
                                 </tbody>
                             </table>
+                            <div className="card">
+                                <div class="card-header">Description</div>
+                                <div className="card-body">
+                                    {this.state.description}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

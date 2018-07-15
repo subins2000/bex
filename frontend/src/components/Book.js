@@ -14,7 +14,15 @@ class Book extends Component {
         super(props);
 
         this.state = {
+            author: '',
+            branch: '',
+            created_at: '',
+            description: '',
             isNotFound: false,
+            photo: '',
+            semester: '',
+            title: '',
+            user: '',
         }
 
         if (this.props.match.params.slug) {

@@ -41,6 +41,7 @@ class Book extends Component {
                 photo: r.data.photo,
                 semester: r.data.semester,
                 title: r.data.title,
+                user: r.data.user,
             });
         }).catch(function(e) {
             if (e.response.status === 404) {
@@ -56,7 +57,8 @@ class Book extends Component {
             bookViewURL = '/book/' + this.slug,
             branch = this.state.branch,
             photo,
-            semester = this.state.semester;
+            semester = this.state.semester,
+            userLink = 'u/' + this.state.user;
 
         if (this.state.photo) {
             photo = (
@@ -114,7 +116,7 @@ class Book extends Component {
                                         </tr>
                                         <tr>
                                             <th scope="row">Added on BeX</th>
-                                            <td>{added}</td>
+                                            <td>{added} by <Link to={userLink}>u/{this.state.user}</Link></td>
                                         </tr>
                                     </tbody>
                                 </table>

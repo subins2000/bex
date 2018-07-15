@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.auth.models import User
 from rest_framework import serializers
 
 from books.models import Books
@@ -20,9 +21,7 @@ class BookReadSerializer(serializers.ModelSerializer):
     '''
 
     photo = serializers.SerializerMethodField()
-    user = serializers.HiddenField(
-        default=serializers.CurrentUserDefault(),
-    )
+    user = serializers.SerializerMethodField()
 
     class Meta:
 
@@ -35,4 +34,10 @@ class BookReadSerializer(serializers.ModelSerializer):
         if book['photo']:
             return request.build_absolute_uri(settings.MEDIA_URL + book['photo'])
         else:
+            return None
+
+    def get_user(self, book):
+        try:
+            return User.objects.get(pk=book['user_id']).username
+        except:
             return None

@@ -66,7 +66,7 @@ class Book extends Component {
             branch = this.state.branch,
             photo,
             semester = this.state.semester,
-            userLink = 'u/' + this.state.user;
+            userLink = '/u/' + this.state.user;
 
         if (this.state.photo) {
             photo = (

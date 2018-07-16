@@ -12,8 +12,9 @@ import Book from './components/Book.js';
 import Home from './components/Home.js';
 import Login from './components/Login.js';
 import NotFound from './components/NotFound.js';
-import Register from './components/Register.js';
 import Profile from './components/Profile.js';
+import Register from './components/Register.js';
+import Search from './components/Search.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -62,6 +63,7 @@ class App extends Component {
                         <Route exact path="/addbook" component={AddBook} />
                         <Route exact path="/u/:username" component={Profile} />
                         <Route exact path="/book/:slug" component={Book} />
+                        <Route exact path="/search" component={Search} />
                         <Route component={NotFound} />
                     </Switch>
                 </div>

@@ -11,6 +11,9 @@ class Search extends Component {
 
     constructor(props) {
         super(props);
+
+        const qs = require('query-string');
+        this.queryParams = qs.parse(window.location.search);
     }
 
     render() {

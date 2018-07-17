@@ -18,6 +18,10 @@ class Home extends Component {
             bookList: [],
         };
 
+        this.bookSearchForm = React.createRef();
+
+        this.onBookSearchFormSubmit = this.onBookSearchFormSubmit.bind(this);
+
         this.updateUserBooks();
     }
 
@@ -33,6 +37,14 @@ class Home extends Component {
                 });
             }
         });
+    }
+
+    onBookSearchFormSubmit(e) {
+        e.preventDefault();
+
+        var queryString = new URLSearchParams(new FormData(this.bookSearchForm['current'])).toString();
+
+        this.props.history.push('/search?' + queryString);
     }
 
     intro() {
@@ -86,7 +98,7 @@ class Home extends Component {
                                 BeX
                             </div>
                             <div className="card-body">
-                                <form className="form-group row" id="bookSearchForm">
+                                <form className="form-group row" ref={this.bookSearchForm} onSubmit={this.onBookSearchFormSubmit}>
                                     <div className="col-10">
                                         <input type="text" className="form-control" id="bookQuery" name="bookQuery" placeholder="Search for books" />
                                     </div>

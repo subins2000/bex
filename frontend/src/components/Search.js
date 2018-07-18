@@ -20,7 +20,7 @@ class Search extends Component {
         this.queryParams = qs.parse(window.location.search);
 
         this.state = {
-            searchQuery: this.queryParams['bookQuery'],
+            bookQuery: this.queryParams['bookQuery'],
         };
     }
 
@@ -44,7 +44,7 @@ class Search extends Component {
                         <div className="card-body">
                             <form className="form-group row" ref={this.bookSearchForm} onSubmit={this.onBookSearchFormSubmit}>
                                 <div className="col-10">
-                                    <input type="text" className="form-control" name="bookQuery" placeholder="Search for books" value={this.state.searchQuery} />
+                                    <input type="text" className="form-control" name="bookQuery" placeholder="Search for books" value={this.state.bookQuery} />
                                 </div>
                                 <div className="col-2">
                                     <button type="submit" className="btn btn-primary icon">

@@ -18,6 +18,10 @@ class Search extends Component {
 
         const qs = require('query-string');
         this.queryParams = qs.parse(window.location.search);
+
+        this.state = {
+            searchQuery: this.queryParams['bookQuery'],
+        };
     }
 
     onBookSearchFormSubmit(e) {
@@ -40,7 +44,7 @@ class Search extends Component {
                         <div className="card-body">
                             <form className="form-group row" ref={this.bookSearchForm} onSubmit={this.onBookSearchFormSubmit}>
                                 <div className="col-10">
-                                    <input type="text" className="form-control" id="bookQuery" name="bookQuery" placeholder="Search for books" />
+                                    <input type="text" className="form-control" name="bookQuery" placeholder="Search for books" value={this.state.searchQuery} />
                                 </div>
                                 <div className="col-2">
                                     <button type="submit" className="btn btn-primary icon">

@@ -12,16 +12,21 @@ class Search extends Component {
     constructor(props) {
         super(props);
 
-        this.bookSearchForm = React.createRef();
-
-        this.onBookSearchFormSubmit = this.onBookSearchFormSubmit.bind(this);
-
         const qs = require('query-string');
         this.queryParams = qs.parse(window.location.search);
 
         this.state = {
             bookQuery: this.queryParams['bookQuery'],
         };
+
+        this.bookSearchForm = React.createRef();
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.onBookSearchFormSubmit = this.onBookSearchFormSubmit.bind(this);
+    }
+
+    handleInputChange(e) {
+        this.setState({[e.target.id]: e.target.value});
     }
 
     onBookSearchFormSubmit(e) {
@@ -44,7 +49,7 @@ class Search extends Component {
                         <div className="card-body">
                             <form className="form-group row" ref={this.bookSearchForm} onSubmit={this.onBookSearchFormSubmit}>
                                 <div className="col-10">
-                                    <input type="text" className="form-control" name="bookQuery" placeholder="Search for books" value={this.state.bookQuery} />
+                                    <input type="text" className="form-control" id="bookQuery" name="bookQuery" placeholder="Search for books" value={this.state.bookQuery} onChange={this.handleInputChange} />
                                 </div>
                                 <div className="col-2">
                                     <button type="submit" className="btn btn-primary icon">

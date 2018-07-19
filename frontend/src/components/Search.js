@@ -75,14 +75,16 @@ class Search extends Component {
                                     </div>
                                 </div><br/>
                                 <div className="row">
-                                    <div className="col-2">
+                                    <div className="col-6">
                                         <select className="custom-select" id="semester" name="semester" value={this.state.semester} onChange={this.handleInputChange}>
+                                            <option>Choose Semester :</option>
                                             <option value="0">All Semesters</option>
                                             {[1,2,3,4,5,6,7,8].map((i) => <option value={i} key={i}>S{i}</option>)}
                                         </select>
                                     </div>
-                                    <div className="col-2">
+                                    <div className="col-6">
                                         <select className="custom-select" id="inputBranch" value={this.state.inputBranch} onChange={this.handleInputChange}>
+                                            <option>Choose Branch :</option>
                                             <option value="0">All Branches</option>
                                             {branchOptions}
                                         </select>

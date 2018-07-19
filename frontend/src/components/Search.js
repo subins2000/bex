@@ -39,6 +39,20 @@ class Search extends Component {
     }
 
     render() {
+        var branches = {
+            'civil': 'Civil Engineering',
+            'cse': 'Computer Science Engineering',
+            'ec': 'Electronics & Communication Engineering',
+            'eee': 'Electrical & Electronics Engineering',
+            'mech': 'Mechanical Engineering',
+            'pe': 'Production Engineering'
+        };
+        var branchOptions = [];
+
+        for (var key in branches) {
+            branchOptions.push(<option value={key} key={key}>{branches[key]}</option>);
+        }
+
         return (
             <div>
                 <Header/>
@@ -65,6 +79,12 @@ class Search extends Component {
                                         <select className="custom-select" id="semester" name="semester" value={this.state.semester} onChange={this.handleInputChange}>
                                             <option value="0">All Semesters</option>
                                             {[1,2,3,4,5,6,7,8].map((i) => <option value={i} key={i}>S{i}</option>)}
+                                        </select>
+                                    </div>
+                                    <div className="col-2">
+                                        <select className="custom-select" id="inputBranch" value={this.state.inputBranch} onChange={this.handleInputChange}>
+                                            <option value="0">All Branches</option>
+                                            {branchOptions}
                                         </select>
                                     </div>
                                 </div>

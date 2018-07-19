@@ -17,6 +17,7 @@ class Search extends Component {
 
         this.state = {
             bookQuery: this.queryParams['bookQuery'],
+            semester: this.queryParams['semester'],
         };
 
         this.bookSearchForm = React.createRef();
@@ -47,15 +48,25 @@ class Search extends Component {
                             Search
                         </div>
                         <div className="card-body">
-                            <form className="form-group row" ref={this.bookSearchForm} onSubmit={this.onBookSearchFormSubmit}>
-                                <div className="col-10">
-                                    <input type="text" className="form-control" id="bookQuery" name="bookQuery" placeholder="Search for books" value={this.state.bookQuery} onChange={this.handleInputChange} />
-                                </div>
-                                <div className="col-2">
-                                    <button type="submit" className="btn btn-primary icon">
-                                        <i className="material-icons">search</i>
-                                        <span>Search</span>
-                                    </button>
+                            <form className="form-group" ref={this.bookSearchForm} onSubmit={this.onBookSearchFormSubmit}>
+                                <div className="row">
+                                    <div className="col-10">
+                                        <input type="text" className="form-control" id="bookQuery" name="bookQuery" placeholder="Search for books" value={this.state.bookQuery} onChange={this.handleInputChange} />
+                                    </div>
+                                    <div className="col-2">
+                                        <button type="submit" className="btn btn-primary icon">
+                                            <i className="material-icons">search</i>
+                                            <span>Search</span>
+                                        </button>
+                                    </div>
+                                </div><br/>
+                                <div className="row">
+                                    <div className="col-2">
+                                        <select className="custom-select" id="semester" name="semester" value={this.state.semester} onChange={this.handleInputChange}>
+                                            <option value="0">All Semesters</option>
+                                            {[1,2,3,4,5,6,7,8].map((i) => <option value={i} key={i}>S{i}</option>)}
+                                        </select>
+                                    </div>
                                 </div>
                             </form>
                         </div>

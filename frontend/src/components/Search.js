@@ -24,6 +24,9 @@ class Search extends Component {
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.onBookSearchFormSubmit = this.onBookSearchFormSubmit.bind(this);
+        this.search = this.search.bind(this);
+
+        this.search();
     }
 
     handleInputChange(e) {
@@ -36,6 +39,20 @@ class Search extends Component {
         var queryString = new URLSearchParams(new FormData(this.bookSearchForm['current'])).toString();
 
         this.props.history.push('/search?' + queryString);
+
+        this.search();
+    }
+
+    search() {
+        axios.get('/api/books/search', {
+            params: {
+                bookQuery: this.state.bookQuery,
+            }
+        }).then(function(response) {
+
+        }).catch(function(error) {
+            console.log(error);
+        });
     }
 
     render() {

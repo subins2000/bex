@@ -49,3 +49,19 @@ class BookInfo(APIView):
         serializer = BookReadSerializer(book, context={'request': request})
         return Response(serializer.data)
 
+
+class BookSearch(ListAPIView):
+
+    serializer_class = BookReadSerializer
+
+    def get_queryset(self):
+
+        authorQuery = self.request.query_params.get('authorQuery', None)
+        bookQuery = self.request.query_params.get('bookQuery', None)
+
+        filters = {}
+
+        if bookQuery is not None:
+            filters['title__icontains'] = bookQuery
+
+        return Books.objects.filter(**filters)

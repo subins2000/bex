@@ -31,8 +31,10 @@ class BookReadSerializer(serializers.ModelSerializer):
     def get_photo(self, book):
         request = self.context.get('request', None)
 
-        if book['photo']:
+        if type(book) is dict and book['photo']:
             return request.build_absolute_uri(settings.MEDIA_URL + book['photo'])
+        elif type(book) is Books and book.photo:
+            return request.build_absolute_uri(settings.MEDIA_URL + book.photo.name)
         else:
             return None
 

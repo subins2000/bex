@@ -23,6 +23,7 @@ from . import views
 urlpatterns = [
     path('api/books/add', views.BookAdd.as_view()),
     path('api/books/list', views.BookList.as_view()),
+    path('api/books/search', views.BookSearch.as_view()),
     url(r'^api/book/(?P<slug>[-\w]+)$', views.BookInfo.as_view()),
 ]
 

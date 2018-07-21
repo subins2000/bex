@@ -17,8 +17,8 @@ class Search extends Component {
 
         this.state = {
             bookQuery: this.queryParams['bookQuery'],
-            semester: this.queryParams['semester'],
             results: [],
+            semester: this.queryParams['semester'],
         };
 
         this.bookSearchForm = React.createRef();
@@ -136,7 +136,7 @@ class Search extends Component {
                     </div><br/>
                     <div className="card">
                         <div className="card-header">
-                            Results
+                            <span>{this.state.results.length} results</span>
                         </div>
                         <div className="card-body">
                             <div className="card-columns">

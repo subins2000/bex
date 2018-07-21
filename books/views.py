@@ -59,6 +59,7 @@ class BookSearch(ListAPIView):
         authorQuery = self.request.query_params.get('authorQuery', None)
         bookQuery = self.request.query_params.get('bookQuery', None)
         branch = self.request.query_params.get('branch', None)
+        semester = self.request.query_params.get('semester', None)
 
         filters = {}
 
@@ -67,5 +68,8 @@ class BookSearch(ListAPIView):
 
         if branch is not None and len(branch) > 1:
             filters['branch'] = branch
+
+        if semester is not None and len(semester) is 1:
+            filters['semester'] = semester
 
         return Books.objects.filter(**filters)

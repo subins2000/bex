@@ -52,6 +52,7 @@ class Search extends Component {
             params: {
                 bookQuery: this.state.bookQuery,
                 branch: this.state.branch,
+                semester: this.state.semester,
             }
         }).then(function(response) {
             var books = response.data,

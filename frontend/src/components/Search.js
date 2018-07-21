@@ -133,12 +133,16 @@ class Search extends Component {
                                 </div>
                             </form>
                         </div>
-                    </div><br/>
+                    </div>
+                    <br/>
                     <div className="card">
                         <div className="card-header">
                             <span>{this.state.results.length} results</span>
                         </div>
                         <div className="card-body">
+                            <div className={this.state.results.length > 0 ? 'd-none' : ''}>
+                                <p>No results found</p>
+                            </div>
                             <div className="card-columns">
                                 {this.state.results}
                             </div>

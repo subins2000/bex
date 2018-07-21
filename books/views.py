@@ -58,10 +58,14 @@ class BookSearch(ListAPIView):
 
         authorQuery = self.request.query_params.get('authorQuery', None)
         bookQuery = self.request.query_params.get('bookQuery', None)
+        branch = self.request.query_params.get('branch', None)
 
         filters = {}
 
         if bookQuery is not None:
             filters['title__icontains'] = bookQuery
+
+        if branch is not None and len(branch) > 1:
+            filters['branch'] = branch
 
         return Books.objects.filter(**filters)

@@ -17,6 +17,7 @@ class Search extends Component {
 
         this.state = {
             bookQuery: this.queryParams['bookQuery'],
+            branch: '',
             results: [],
             semester: this.queryParams['semester'],
         };
@@ -50,6 +51,7 @@ class Search extends Component {
         axios.get('/api/books/search', {
             params: {
                 bookQuery: this.state.bookQuery,
+                branch: this.state.branch,
             }
         }).then(function(response) {
             var books = response.data,

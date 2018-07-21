@@ -18,6 +18,7 @@ class Search extends Component {
         this.state = {
             bookQuery: this.queryParams['bookQuery'],
             semester: this.queryParams['semester'],
+            results: [],
         };
 
         this.bookSearchForm = React.createRef();
@@ -44,12 +45,35 @@ class Search extends Component {
     }
 
     search() {
+        var $this = this;
+
         axios.get('/api/books/search', {
             params: {
                 bookQuery: this.state.bookQuery,
             }
         }).then(function(response) {
+            var books = response.data,
+                bookList = [],
+                url = '';
 
+            for (var i = 0;i < books.length;i++) {
+                url = '/book/' + books[i].slug;
+                bookList.push(
+                    <div className="card" key={i}>
+                        <img className="card-img-top" src={books[i].photo} alt="" />
+                        <div className="card-body">
+                            <h5 className="card-title">
+                                <Link to={url}>{books[i].title}</Link>
+                            </h5>
+                            <h6 className="card-subtitle mb-2 text-muted">{books[i].author}</h6>
+                        </div>
+                    </div>
+                );
+            }
+
+            $this.setState({
+                results: bookList,
+            })
         }).catch(function(error) {
             console.log(error);
         });
@@ -108,6 +132,16 @@ class Search extends Component {
                                     </div>
                                 </div>
                             </form>
+                        </div>
+                    </div><br/>
+                    <div className="card">
+                        <div className="card-header">
+                            Results
+                        </div>
+                        <div className="card-body">
+                            <div className="card-columns">
+                                {this.state.results}
+                            </div>
                         </div>
                     </div>
                 </div>

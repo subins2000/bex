@@ -17,7 +17,7 @@ class Search extends Component {
 
         this.state = {
             bookQuery: this.queryParams['bookQuery'],
-            branch: '',
+            branch: this.queryParams['branch'],
             results: [],
             semester: this.queryParams['semester'],
         };
@@ -127,7 +127,7 @@ class Search extends Component {
                                         </select>
                                     </div>
                                     <div className="col-6">
-                                        <select className="custom-select" id="inputBranch" value={this.state.inputBranch} onChange={this.handleInputChange}>
+                                        <select className="custom-select" id="branch" name="branch" value={this.state.branch} onChange={this.handleInputChange}>
                                             <option>Choose Branch :</option>
                                             <option value="0">All Branches</option>
                                             {branchOptions}

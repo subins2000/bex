@@ -16,6 +16,7 @@ class Search extends Component {
         this.queryParams = qs.parse(window.location.search);
 
         this.state = {
+            authorQuery: this.queryParams['authorQuery'],
             bookQuery: this.queryParams['bookQuery'],
             branch: this.queryParams['branch'],
             results: [],
@@ -50,6 +51,7 @@ class Search extends Component {
 
         axios.get('/api/books/search', {
             params: {
+                authorQuery: this.state.authorQuery,
                 bookQuery: this.state.bookQuery,
                 branch: this.state.branch,
                 semester: this.state.semester,
@@ -119,14 +121,17 @@ class Search extends Component {
                                     </div>
                                 </div><br/>
                                 <div className="row">
-                                    <div className="col-6">
+                                    <div className="col-5">
+                                        <input type="text" className="form-control" id="authorQuery" name="authorQuery" placeholder="Author name" value={this.state.authorQuery} onChange={this.handleInputChange} />
+                                    </div>
+                                    <div className="col-2">
                                         <select className="custom-select" id="semester" name="semester" value={this.state.semester} onChange={this.handleInputChange}>
                                             <option>Choose Semester :</option>
                                             <option value="0">All Semesters</option>
                                             {[1,2,3,4,5,6,7,8].map((i) => <option value={i} key={i}>S{i}</option>)}
                                         </select>
                                     </div>
-                                    <div className="col-6">
+                                    <div className="col-5">
                                         <select className="custom-select" id="branch" name="branch" value={this.state.branch} onChange={this.handleInputChange}>
                                             <option>Choose Branch :</option>
                                             <option value="0">All Branches</option>

@@ -63,6 +63,9 @@ class BookSearch(ListAPIView):
 
         filters = {}
 
+        if authorQuery is not None:
+            filters['author__icontains'] = authorQuery
+
         if bookQuery is not None:
             filters['title__icontains'] = bookQuery
 

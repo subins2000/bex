@@ -28,22 +28,28 @@ class Search extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.onBookSearchFormSubmit = this.onBookSearchFormSubmit.bind(this);
         this.search = this.search.bind(this);
+        this.updateURLAndSearch = this.updateURLAndSearch.bind(this);
 
         this.search();
     }
 
     handleInputChange(e) {
         this.setState({[e.target.id]: e.target.value});
+
+        if (e.target.id === 'branch' || e.target.id === 'semester') {
+            setTimeout(this.updateURLAndSearch, 1000);
+        }
+    }
+
+    updateURLAndSearch() {
+        var queryString = new URLSearchParams(new FormData(this.bookSearchForm['current'])).toString();
+        this.props.history.push('/search?' + queryString);
+        this.search();
     }
 
     onBookSearchFormSubmit(e) {
         e.preventDefault();
-
-        var queryString = new URLSearchParams(new FormData(this.bookSearchForm['current'])).toString();
-
-        this.props.history.push('/search?' + queryString);
-
-        this.search();
+        this.updateURLAndSearch();
     }
 
     search() {

@@ -122,7 +122,7 @@ class Search extends Component {
                                 </div><br/>
                                 <div className="row">
                                     <div className="col-5">
-                                        <input type="text" className="form-control" id="authorQuery" name="authorQuery" placeholder="Author name" value={this.state.authorQuery} onChange={this.handleInputChange} />
+                                        <input type="text" className="form-control" id="authorQuery" name="authorQuery" placeholder="Enter author name :" value={this.state.authorQuery} onChange={this.handleInputChange} />
                                     </div>
                                     <div className="col-2">
                                         <select className="custom-select" id="semester" name="semester" value={this.state.semester} onChange={this.handleInputChange}>

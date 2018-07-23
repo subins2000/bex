@@ -133,14 +133,14 @@ class Search extends Component {
                                     <div className="col-2">
                                         <select className="custom-select" id="semester" name="semester" value={this.state.semester} onChange={this.handleInputChange}>
                                             <option value="">Choose Semester :</option>
-                                            <option value="0">All Semesters</option>
+                                            <option value="0">Not Applicable</option>
                                             {[1,2,3,4,5,6,7,8].map((i) => <option value={i} key={i}>S{i}</option>)}
                                         </select>
                                     </div>
                                     <div className="col-5">
                                         <select className="custom-select" id="branch" name="branch" value={this.state.branch} onChange={this.handleInputChange}>
                                             <option value="">Choose Branch :</option>
-                                            <option value="0">All Branches</option>
+                                            <option value="0">Not Applicable</option>
                                             {branchOptions}
                                         </select>
                                     </div>

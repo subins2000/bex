@@ -75,7 +75,7 @@ class Book extends Component {
         } else {
             photo = (
                 <center>
-                    <span class="alert alert-warning">No Photo Available</span>
+                    <span className="alert alert-warning">No Photo Available</span>
                 </center>
             );
         }
@@ -97,8 +97,8 @@ class Book extends Component {
             <div>
                 <Header/>
                 <div className="container" id="content">
-                    <div class="card">
-                        <div class="card-header">
+                    <div className="card">
+                        <div className="card-header">
                             <Link to={bookViewURL}>
                                 <h1>{this.state.title}</h1>
                             </Link>
@@ -129,7 +129,7 @@ class Book extends Component {
                                     </tbody>
                                 </table>
                                 <div className="card">
-                                    <div class="card-header">Description</div>
+                                    <div className="card-header">Description</div>
                                     <div className="card-body">
                                         {this.state.description}
                                     </div>

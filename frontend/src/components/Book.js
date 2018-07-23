@@ -84,7 +84,7 @@ class Book extends Component {
             semester = 'Not applicable';
         }
 
-        if (!branch) {
+        if (branch == '0') {
             branch = 'Not applicable';
         }
 

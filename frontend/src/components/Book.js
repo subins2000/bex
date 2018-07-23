@@ -64,8 +64,10 @@ class Book extends Component {
         var added,
             bookViewURL = '/book/' + this.slug,
             branch = this.state.branch,
+            branchSearchURI = '/search?branch=' + branch,
             photo,
             semester = this.state.semester,
+            semesterSearchURI = '/search?semester=' + semester,
             userLink = '/u/' + this.state.user;
 
         if (this.state.photo) {
@@ -116,11 +118,11 @@ class Book extends Component {
                                         </tr>
                                         <tr>
                                             <th scope="row">Semester</th>
-                                            <td><span className="alert alert-info">{semester}</span></td>
+                                            <td><Link to={semesterSearchURI}>{semester}</Link></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Branch</th>
-                                            <td><span className="alert alert-info">{branch}</span></td>
+                                            <td><Link to={branchSearchURI}>{branch}</Link></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Added on BeX</th>

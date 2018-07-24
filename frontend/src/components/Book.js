@@ -62,6 +62,7 @@ class Book extends Component {
 
     render() {
         var added,
+            authorSearchURI = '/search?authorQuery=' + this.state.author,
             bookViewURL = '/book/' + this.slug,
             branch = this.state.branch,
             branchSearchURI = '/search?branch=' + branch,
@@ -114,7 +115,7 @@ class Book extends Component {
                                     <tbody>
                                         <tr>
                                             <th scope="row">Author</th>
-                                            <td>{this.state.author}</td>
+                                            <td><Link to={authorSearchURI}>{this.state.author}</Link></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Semester</th>

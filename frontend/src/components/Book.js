@@ -127,7 +127,12 @@ class Book extends Component {
                                         </tr>
                                         <tr>
                                             <th scope="row">Added on BeX</th>
-                                            <td>{added} by <Link to={userLink}>u/{this.state.user}</Link></td>
+                                            <td>{added} by&nbsp;
+                                                <Link to={userLink} className="d-inline-block">
+                                                    <i class="material-icons float-left">person</i>
+                                                    <span>u/{this.state.user}</span>
+                                                </Link>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

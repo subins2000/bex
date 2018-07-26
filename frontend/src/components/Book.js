@@ -6,6 +6,7 @@ import {
 
 import Header from './partial/Header.js';
 import NotFound from './NotFound.js';
+import RequestBookForm from './RequestBookForm.js';
 
 
 class Book extends Component {
@@ -21,6 +22,7 @@ class Book extends Component {
             isNotFound: false,
             photo: '',
             semester: '',
+            showRequestBookForm: false,
             title: '',
             user: '',
         }
@@ -34,6 +36,8 @@ class Book extends Component {
         }
 
         this.getBookInfo = this.getBookInfo.bind(this);
+        this.onRequestBtnClick = this.onRequestBtnClick.bind(this);
+
         this.getBookInfo();
     }
 
@@ -57,6 +61,12 @@ class Book extends Component {
                     isNotFound: true,
                 });
             }
+        });
+    }
+
+    onRequestBtnClick() {
+        this.setState({
+            showRequestBookForm: true,
         });
     }
 
@@ -129,9 +139,19 @@ class Book extends Component {
                                             <th scope="row">Added on BeX</th>
                                             <td>{added} by&nbsp;
                                                 <Link to={userLink} className="d-inline-block">
-                                                    <i class="material-icons float-left">person</i>
+                                                    <i className="material-icons float-left">person</i>
                                                     <span>u/{this.state.user}</span>
                                                 </Link>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" className="text-center">
+                                                <a className="btn btn-primary" onClick={this.onRequestBtnClick}>
+                                                    <i className="material-icons float-left">library_add</i>
+                                                    &nbsp;
+                                                    <span>Request This Book</span>
+                                                </a>
+                                                {this.state.showRequestBookForm ? <RequestBookForm/> : null}
                                             </td>
                                         </tr>
                                     </tbody>

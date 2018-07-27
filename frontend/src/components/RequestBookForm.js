@@ -8,7 +8,7 @@ class RequestBookForm extends Component {
         super(props);
 
         this.state = {
-            inputMessage: '',
+            inputMessage: 'Hey! I would love to have this book !',
         }
     }
 
@@ -22,6 +22,9 @@ class RequestBookForm extends Component {
                 <div className="form-group">
                     <label htmlFor="inputMessage">Message</label>
                     <textarea type="text" className="form-control" id="inputMessage" value={this.state.inputMessage} onChange={this.handleInputChange} />
+                </div>
+                <div className="form-grpup">
+                    <button className="btn btn-primary">Send</button>
                 </div>
             </form>
         )

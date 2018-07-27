@@ -18,7 +18,7 @@ class RequestBookForm extends Component {
 
     render() {
         return (
-            <form>
+            <form className="text-left">
                 <div className="form-group">
                     <label htmlFor="inputMessage">Message</label>
                     <textarea type="text" className="form-control" id="inputMessage" value={this.state.inputMessage} onChange={this.handleInputChange} />

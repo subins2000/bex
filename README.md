@@ -9,7 +9,7 @@ The project is divided into two, frontend (NodeJS) and backend (django) in their
 * Clone the repo
 * Set up python virtual environment :
   ```bash
-  sudo apt-get install python3-pip python3-venv
+  sudo apt-get install npm python3-pip python3-venv
   ```
 * Run these from the root folder of the cloned repo :
     ```bash

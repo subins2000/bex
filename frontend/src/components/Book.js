@@ -146,11 +146,11 @@ class Book extends Component {
                                         </tr>
                                         <tr>
                                             <td colspan="2" className="text-center">
-                                                <a className="btn btn-primary" onClick={this.onRequestBtnClick}>
+                                                <button type="button" className="btn btn-primary" onClick={this.onRequestBtnClick}>
                                                     <i className="material-icons float-left">library_add</i>
                                                     &nbsp;
                                                     <span>Request This Book</span>
-                                                </a>
+                                                </button>
                                                 {this.state.showRequestBookForm ? <RequestBookForm/> : null}
                                             </td>
                                         </tr>

@@ -12,13 +12,17 @@ class RequestBookForm extends Component {
         }
     }
 
+    handleFormSubmit(e) {
+        e.preventDefault();
+    }
+
     handleInputChange(e) {
         this.setState({[e.target.id]: e.target.value});
     }
 
     render() {
         return (
-            <form className="text-left">
+            <form className="text-left" onSubmit={this.handleFormSubmit}>
                 <div className="form-group">
                     <label htmlFor="inputMessage">Message</label>
                     <textarea type="text" className="form-control" id="inputMessage" value={this.state.inputMessage} onChange={this.handleInputChange} />

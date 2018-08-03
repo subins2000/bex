@@ -151,7 +151,7 @@ class Book extends Component {
                                                     &nbsp;
                                                     <span>Request This Book</span>
                                                 </button>
-                                                {this.state.showRequestBookForm ? <RequestBookForm/> : null}
+                                                {this.state.showRequestBookForm ? <RequestBookForm slug={this.slug} /> : null}
                                             </td>
                                         </tr>
                                     </tbody>

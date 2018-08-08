@@ -10,10 +10,16 @@ class RequestBookForm extends Component {
         this.state = {
             inputMessage: 'Hey! I would love to have this book !',
         }
+
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
 
     handleFormSubmit(e) {
         e.preventDefault();
+        console.log(this.props.slug);
+        axios.post('/api/book/' + this.props.slug + '/chat', {
+            msg: this.state.inputMessage,
+        });
     }
 
     handleInputChange(e) {

@@ -76,3 +76,15 @@ class BookSearch(ListAPIView):
             filters['semester'] = semester
 
         return Books.objects.filter(**filters)
+
+
+class BookChat(APIView):
+
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def get_object(self, slug):
+        try:
+            return Books.objects.get(slug=slug).__dict__
+        except Books.DoesNotExist:
+            raise Http404

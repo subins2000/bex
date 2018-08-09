@@ -25,6 +25,7 @@ urlpatterns = [
     path('api/books/list', views.BookList.as_view()),
     path('api/books/search', views.BookSearch.as_view()),
     url(r'^api/book/(?P<slug>[-\w]+)$', views.BookInfo.as_view()),
+    url(r'^api/book/(?P<slug>[-\w]+)/chat$', views.BookChat.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

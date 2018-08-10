@@ -26,3 +26,17 @@ class Books(models.Model):
         on_delete=models.CASCADE,
         db_column='user',
     )
+
+
+class BookChat(models.Model):
+
+    book_slug = models.ForeignKey(
+        Books,
+        on_delete=models.CASCADE,
+    )
+    msg = models.CharField(max_length=500)
+    receiver = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+    )
+    sent = models.DateTimeField(auto_now_add=True)

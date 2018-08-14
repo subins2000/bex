@@ -83,8 +83,6 @@ class BookChat(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
-    def get_object(self, slug):
-        try:
-            return Books.objects.get(slug=slug).__dict__
-        except Books.DoesNotExist:
+    def post(self, request, slug, format=None):
+        if not Books.objects.filter(slug=slug).exists():
             raise Http404

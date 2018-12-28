@@ -9,24 +9,24 @@ The project is divided into two, frontend (NodeJS) and backend (django) in their
 * Clone the repo
 * Set up python virtual environment :
   ```bash
-  sudo apt-get install npm python3-pip python3-venv
+  sudo apt-get install npm python3-pip
+  pip3 install pipenv
   ```
 * Run these from the root folder of the cloned repo :
-    ```bash
-    python3 -m venv env
-    source env/bin/activate
-    ```
+  ```bash
+  pipenv install
+  ```
 
-    Running `source bin/activate` command will make your shell enter into the python virtual environment. Now install the dependencies :
+* Activate environment :
+  ```bash
+  pipenv shell
+  ```
 
-    ```bash
-    pip install -r requirements.txt
-    ```
 * Now the frontend part needs to be set up. From root folder of the cloned repo, run :
-    ```
-    cd frontend
-    npm install
-    ```
+  ```
+  cd frontend
+  npm install
+  ```
 
 ## Running
 

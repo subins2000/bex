@@ -1,0 +1,16 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django-webpack-loader = "==0.6.0"
+djangorestframework = "==3.8.2"
+pytz = "==2018.4"
+Django = "==2.0.6"
+Pillow = "==5.2.0"
+
+[requires]
+python_version = "3.6"

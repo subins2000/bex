@@ -71,8 +71,9 @@ class AddBook extends Component {
         }).catch(function(error) {
             console.log(error);
 
-            if (error.response.status === 401) {
-
+            if (error.response.status === 400) {
+                toastr.info('Errors in values given');
+                return;
             }
         });
     }

@@ -9,7 +9,7 @@ verify_ssl = true
 django-webpack-loader = "==0.6.0"
 djangorestframework = "==3.8.2"
 pytz = "==2018.4"
-Django = "==2.0.6"
+Django = "==2.2.10"
 Pillow = "==5.2.0"
 
 [requires]
